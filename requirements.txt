@@ -1,6 +1,6 @@
 flask
 #datetime
-#requests
+requests
 #streamlit
 #pandas
 #numpy
