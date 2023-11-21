@@ -1,0 +1,26 @@
+<!DOCTYPE html> <!-- Defines the document type and version of HTML -->
+<html> <!-- Encloses the entire HTML document -->
+
+  <head> <!-- Contains meta information about the document -->
+    <title>Amazon Price Tracker</title> <!-- Defines a title for the document -->
+    <meta charset="UTF-8"> <!-- Defines the character encoding for the document -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Makes the webpage responsive on different devices -->
+    <link href="https://fonts.googleapis.com/css?family=Officina+Sans:700&display=swap" rel="stylesheet"> <!-- Links to a Google font for use in the document -->
+    <link rel="stylesheet" href="static/homepageCSS.css"> <!-- Links to a CSS file for styling the document -->
+    <h3 style="color: white;">User: {{username}} </h3> <!-- Displays the username, which is passed in as a variable -->
+  </head>
+
+  <body> <!-- Contains the content that will be visible to the user -->
+    <div class="header"> <!-- A div element for grouping content -->
+      <h1 class="title">Amazon <span>Price Tracker</span></h1> <!-- Heading for the page -->
+      <div class="auth-buttons"> <!-- A div element for grouping the authentication buttons -->
+
+        <a href="https://ide-58ce65c7c76042089e7a808574dec689-8080.cs50.ws/logout"> <!-- A hyperlink that, when clicked, will log the user out -->
+          <button class="signup-button">Log Out</button> <!-- A button for logging out -->
+        </a>
+
+      </div>
+    </div>
+  </body>
+
+</html>
