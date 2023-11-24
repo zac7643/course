@@ -1,0 +1,71 @@
+body {
+  background-color: #232f3e; /* Sets the background color of the entire webpage to a dark blue color */
+  margin: 0; /* Removes the default margin around the body */
+}
+
+.header {
+  display: flex; /* Sets the display of the header to flex, allowing its child elements to be laid out in a row or column */
+  justify-content: space-between; /* Distributes the child elements evenly along the horizontal line */
+  align-items: center; /* Aligns the child elements in the center along the vertical line */
+  padding: 20px; /* Adds padding around the header */
+}
+
+.title {
+  text-align: center; /* Centers the text of the title */
+  margin: 0; /* Removes the default margin around the title */
+  font-size: 36px; /* Sets the font size of the title */
+  color: #fff; /* Sets the color of the title to white */
+  font-family: "Officina Sans Bold", sans-serif; /* Sets the font of the title to "Officina Sans Bold", if not available, it falls back to any sans-serif font */
+}
+
+.title span {
+  color: #FF9900; /* Sets the color of the text within a span element inside the title to orange */
+}
+
+.auth-buttons {
+  display: flex; /* Sets the display of the auth-buttons to flex, allowing its child elements to be laid out in a row or column */
+  justify-content: flex-end; /* Aligns the child elements to the end of the container along the horizontal line */
+  gap: 10px; /* Sets the space between each child element */
+}
+
+.login-button,
+.signup-button {
+  background-color: transparent; /* Sets the background color of the login and signup buttons to transparent */
+  color: white; /* Sets the color of the text in the login and signup buttons to white */
+  border: 2px solid white; /* Sets the border of the login and signup buttons to be 2px wide and white */
+  border-radius: 5px; /* Rounds the corners of the login and signup buttons */
+  padding: 10px 20px; /* Adds padding to the login and signup buttons */
+  font-size: 16px; /* Sets the font size of the text in the login and signup buttons */
+  cursor: pointer; /* Changes the mouse cursor to a pointer when hovering over the login and signup buttons */
+}
+
+.search-bar {
+  background-color: black; /* Sets the background color of the search bar to black */
+  color: white; /* Sets the color of the text in the search bar to white */
+  padding: 20px; /* Adds padding to the search bar */
+  text-align: center; /* Centers the text in the search bar */
+}
+
+.search-bar input[type="text"] {
+  padding: 10px; /* Adds padding to the text input field in the search bar */
+  border-radius: 5px; /* Rounds the corners of the text input field in the search bar */
+  border: none; /* Removes the border of the text input field in the search bar */
+  margin-right: 10px; /* Adds margin to the right of the text input field in the search bar */
+  font-size: 16px; /* Sets the font size of the text in the input field in the search bar */
+  width: 60%; /* Sets the width of the text input field in the search bar to 60% of its parent container */
+}
+
+.search-bar button[type="submit"] {
+  background-color: #FF9900; /* Sets the background color of the submit button in the search bar to orange */
+  color: #fff; /* Sets the color of the text in the submit button in the search bar to white */
+  border: none; /* Removes the border of the submit button in the search bar */
+  border-radius: 15px; /* Rounds the corners of the submit button in the search bar */
+  padding: 10px 20px; /* Adds padding to the submit button in the search bar */
+  font-size: 16px; /* Sets the font size of the text in the submit button in the search bar */
+  cursor: pointer; /* Changes the mouse cursor to a pointer when hovering over the submit button in the search bar */
+  transition: background-color 0.2s ease-in-out; /* Adds a transition effect to the background color of the submit button in the search bar when hovered over */
+}
+
+.search-bar button[type="submit"]:hover {
+  background-color: #e67e00; /* Changes the background color of the submit button in the search bar to a different shade of orange when hovered over */
+}
