@@ -13,11 +13,9 @@
   <script>
 
 
-// Sort data in descending order by product_price
-data.sort((a, b) => parseFloat(b['product_price']) - parseFloat(a['product_price']));
 
 // Extract labels and data points
-const labels = data.map(item => item['product_name']);
+const labels = data.map(item => item['price_date']);
 const dataPoints = data.map(item => parseFloat(item['product_price']));
 
 const ctx = document.getElementById("myFirstChart").getContext("2d");
@@ -28,9 +26,7 @@ const myChart = new Chart(ctx, {
     datasets: [{
       label: 'Price',
       data: dataPoints,
-      borderColor: [
-        'rgba(255, 99, 132, 1)',
-      ],
+      borderColor: 'rgba(255, 99, 132, 1)',
       tension: 0.1
     }]
   },
@@ -42,6 +38,7 @@ const myChart = new Chart(ctx, {
     }
   }
 });
+
 
 </script>
 </body>
