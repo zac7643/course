@@ -1,13 +1,17 @@
-<!DOCTYPE html> <!-- This line is a document type declaration, helps with rendering in browser. -->
-<html> <!-- This is the root element of an HTML page. -->
+<!DOCTYPE html>
+<html>
     <head>
-        <meta charset="UTF-8"
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"></script>
     </head>
 
     <body>
-    <script>
+        <div>
+            <canvas id="myChart"></canvas>
+        </div>
+        
+        <script>
             const ctx = document.getElementById('myChart');
 
             new Chart(ctx, {
@@ -28,7 +32,7 @@
                 }
             }
             });
-    </script>        
+        </script>        
     </body>
 
 </html>
