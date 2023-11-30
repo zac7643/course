@@ -238,7 +238,7 @@ def get_stats(id):
     data = sorted(data, key=lambda x: float(x['product_price']), reverse=True)
     global sdata
     sdata = jsonify(data)
-    return render_template("stats.html", sdata = sdata)
+    return render_template("stats.html", data = data)
 
 
 @app.route('/getstatschart/')
