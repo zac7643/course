@@ -25,22 +25,20 @@ def result(jobid):
         # Parse the response as JSON
         j = response.json()
         # Update the status from the response
-        if 'status' in j:
-            status = j["status"]
-        else:
-            status = "not working"
+        status = j["status"]
         # If the status is not "working", extract the offers from the response
-            if status != "working":
-                r = j["results"][0]
-                c = r["content"]
-                o = c["offers"]
         # Print the status and count for debugging purposes
         print(status + str(count))
         # Increment the counter
         count = count + 1
         # Pause execution for 0.1 seconds to avoid overloading the API
         time.sleep(0.1)
-    # Return the offers extracted from the response
+        # Return the offers extracted from the response
+    if status != "working":
+        r = j["results"][0]
+        c = r["content"]
+        o = c["offers"]
+    
     return o
 
 
