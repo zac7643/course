@@ -3,44 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
 </head>
 <body>
-  
-  <canvas id="myFirstChart"></canvas>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <canvas id="myChart"></canvas>
+
   <script>
+    // Parse the data passed from Flask
+    const data = JSON.parse('{{ data | tojson | safe }}');
 
+    // Extract labels and data
+    const labels = data.map(item => item.price_date);
+    const dataPoints = data.map(item => parseFloat(item.product_price));
 
-
-// Extract labels and data points
-const labels = data.map(item => item['price_date']);
-const dataPoints = data.map(item => parseFloat(item['product_price']));
-
-const ctx = document.getElementById("myFirstChart").getContext("2d");
-const myChart = new Chart(ctx, {
-  type: "line",
-  data: {
-    labels: labels,
-    datasets: [{
-      label: 'Price',
-      data: dataPoints,
-      borderColor: 'rgba(255, 99, 132, 1)',
-      tension: 0.1
-    }]
-  },
-  options: {
-    scales: {
-      y: {
-        beginAtZero: true
+    const ctx = document.getElementById('myChart');
+    const myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Price',
+          data: dataPoints,
+          borderColor: 'rgba(255, 99, 132, 1)',
+          tension: 0.1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
       }
-    }
-  }
-});
+    });
+  </script>
 
-
-</script>
 </body>
 </html>
-
