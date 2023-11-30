@@ -9,30 +9,12 @@
     <body>
         <div>
             <canvas id="myChart"></canvas>
-        </div>
-        
-        <script>
-            const ctx = document.getElementById('myChart');
+        </div>   
+    <!-- <div style="width: 500px;"><canvas id="dimensions"></canvas></div><br/> -->
+    <div style="width: 800px;"><canvas id="acquisitions"></canvas></div>
 
-            new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                y: {
-                    beginAtZero: true
-                }
-                }
-            }
-            });
-        </script>        
+    <!-- <script type="module" src="dimensions.js"></script> -->
+    <script type="module" src="acquisitions.js"></script>    
     </body>
 
 </html>
