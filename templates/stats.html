@@ -11,7 +11,15 @@
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <script>
- 
+
+
+// Sort data in descending order by product_price
+data.sort((a, b) => parseFloat(b['product_price']) - parseFloat(a['product_price']));
+
+// Extract labels and data points
+const labels = data.map(item => item['product_name']);
+const dataPoints = data.map(item => parseFloat(item['product_price']));
+
 const ctx = document.getElementById("myFirstChart").getContext("2d");
 const myChart = new Chart(ctx, {
   type: "line",
@@ -19,7 +27,7 @@ const myChart = new Chart(ctx, {
     labels: ['Red', 'Blue'],
     datasets: [{
       label: 'Price',
-      data: [data[0],],
+      data: dataPoints,
       borderColor: [
         'rgba(255, 99, 132, 1)',
       ],
