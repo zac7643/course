@@ -147,7 +147,7 @@ global_sterm = ""
 @app.route("/search")
 def search():
     global global_sterm
-    #p = request.args.get("search")
+    p = request.args.get("search")
     #r = asearch.search(p)
     #jobid = r["job_id"]
     jobid = "64f490ef45f4e74352a4aab7"
