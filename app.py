@@ -150,7 +150,7 @@ def search():
     p = request.args.get("search")
     r = asearch.search(p)
     jobid = r["job_id"]
-    #jobid = "64f490ef45f4e74352a4aab7"
+    jobid = "65688fe856526c5afddf9079"
     print(jobid)
     global_sterm = p
     o = result.result (jobid)
