@@ -236,6 +236,7 @@ def get_stats(id):
     data = [dict(zip(column_names, row)) for row in rows]
     # Sort data by 'product_price' in descending order
     data = sorted(data, key=lambda x: float(x['product_price']), reverse=True)
+    print(data)
     global sdata
     sdata = jsonify(data)
     return render_template("stats.html", data = data)
