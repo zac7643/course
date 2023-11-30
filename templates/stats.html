@@ -17,6 +17,9 @@
     const labels = data.map(item => item.price_date);
     const dataPoints = data.map(item => parseFloat(item.product_price));
 
+    console.log("Labels: ", labels);
+    console.log("Data Points: ", dataPoints);
+
     const ctx = document.getElementById('myChart');
     const myChart = new Chart(ctx, {
       type: 'line',
