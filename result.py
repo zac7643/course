@@ -19,26 +19,29 @@ def result(jobid):
     # Initialize a counter
     count = 0
     # Loop while the status is "working"
-    if status == "working":
+    while status == "working":
         # Send a GET request to the URL with the defined headers
         response = requests.get(url, headers=headers)
         # Parse the response as JSON
         j = response.json()
         # Update the status from the response
-        status = j["status"]
+        if 'status' in j:
+            status = j["status"]
+        else:
+            status = "not working"
+
         # If the status is not "working", extract the offers from the response
+        if status != "working":
+            r = j["results"][0]
+            c = r["content"]
+            o = c["offers"]
         # Print the status and count for debugging purposes
         print(status + str(count))
         # Increment the counter
         count = count + 1
         # Pause execution for 0.1 seconds to avoid overloading the API
         time.sleep(0.1)
-        # Return the offers extracted from the response
-    else:
-        r = j["results"][0]
-        c = r["content"]
-        o = c["offers"]
-    
+    # Return the offers extracted from the response
     return o
 
 
