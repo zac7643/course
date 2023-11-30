@@ -13,6 +13,8 @@
     // Parse the data passed from Flask
     const data = JSON.parse('{{ data | tojson | safe }}');
 
+    data.sort((a, b) => new Date(a.price_date) - new Date(b.price_date));
+
     // Extract labels and data
     const labels = data.map(item => item.price_date);
     const dataPoints = data.map(item => parseFloat(item.product_price));
