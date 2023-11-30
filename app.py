@@ -200,6 +200,10 @@ def delete_fav(id):
 def addstat_form():
     return render_template("addstat.html")
 
+@app.route("/stats")
+def stats_page():
+    return render_template("stats.html")
+
 @app.route("/addstats", methods=["POST"])
 def addstats():
     fav_id = request.form.get("fav_id")
