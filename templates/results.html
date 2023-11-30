@@ -158,6 +158,7 @@
               {% elif key == "image" %}   <!-- If the key is "image" -->
                 <td><img src="{{value}}" width="100" height="120"> </td>   <!-- Display an image with the source URL being the value associated with the "image" key -->
               {% endif %}
+            {% endif %}
             {% endfor %}
             </tr>   <!-- End the table row -->
           {% endfor %}   <!-- End the loop through each item in the "items" list -->
