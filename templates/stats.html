@@ -7,21 +7,31 @@
 </head>
 <body>
 
-    <canvas id="myFirstChart"></canvas>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"></script>
-    <script>
+  <canvas id="myFirstChart"></canvas>
 
-const ctx = document.getElementById('myFirstChart');
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js"></script>
+  <script>
 
-new Chart(ctx, {
-  type: 'bar',
+const ctx = document.getElementById("myFirstChart").getContext("2d");
+const myChart = new chart(ctx, {
+  type: "bar",
   data: {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: ['Red', 'Blue' ],
     datasets: [{
       label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
-      borderWidth: 1
+      data: [12, 19],
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(255, 99, 132, 0.2)'
+      
+      ],
+      borderColor: [
+        'rgba{255, 99, 132, 1}',
+        'rgba{255, 99, 132, 1}'
+      ],
+      birderWidth: 1
     }]
+
   },
   options: {
     scales: {
@@ -30,8 +40,8 @@ new Chart(ctx, {
       }
     }
   }
-});
+})
 
-    </script>
+</script>
 </body>
 </html>
