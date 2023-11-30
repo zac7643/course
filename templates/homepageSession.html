@@ -1,0 +1,33 @@
+<!DOCTYPE html> <!-- This line is a declaration to the web browser about what version of HTML the page is written in. -->
+<html> <!-- This line is the root of an HTML document. -->
+
+  <head> <!-- This line is a container for metadata (data about data) and is placed between the <html> tag and the <body> tag. -->
+    <title>Amazon Price Tracker</title> <!-- This line defines the title of the document. -->
+    <meta charset="UTF-8"> <!-- This line defines the character encoding for the document. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- This line gives the browser instructions on how to control the page's dimensions and scaling. -->
+    <link href="https://fonts.googleapis.com/css?family=Officina+Sans:700&display=swap" rel="stylesheet"> <!-- This line includes a CSS file from Google Fonts to be used in the document. -->
+    <link rel="stylesheet" href="static/homepageCSS.css"> <!-- This line includes a CSS file to be used in the document. -->
+    <h3>User: {{username}} </h3> <!-- This line displays the username. It appears to be using a template language to insert the username into the HTML. -->
+  </head>
+
+  <body> <!-- This line contains the content that will be rendered in the browser. -->
+    <div class="header"> <!-- This line creates a container for the header content. -->
+      <h1 class="title">Amazon <span>Price Tracker</span></h1> <!-- This line defines the main heading of the document. -->
+      <div class="auth-buttons"> <!-- This line creates a container for the authentication buttons. -->
+        <a href="https://ide-58ce65c7c76042089e7a808574dec689-8080.cs50.ws/login"> <!-- This line creates a hyperlink to the login page. -->
+          <button class="login-button">Log In</button> <!-- This line creates a login button. -->
+        </a>
+        <a href="https://ide-58ce65c7c76042089e7a808574dec689-8080.cs50.ws/signup"> <!-- This line creates a hyperlink to the signup page. -->
+          <button class="signup-button">signup</button> <!-- This line creates a signup button. -->
+        </a>
+      </div>
+    </div>
+    <div class="search-bar"> <!-- This line creates a container for the search bar. -->
+      <form> <!-- This line creates a form. -->
+        <input type="text" placeholder="Search..."> <!-- This line creates a text input field with a placeholder text of "Search...". -->
+        <button type="submit">Submit</button> <!-- This line creates a submit button. -->
+      </form>
+    </div>
+  </body>
+
+</html> <!-- This line indicates the end of the HTML document. -->
