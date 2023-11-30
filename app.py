@@ -238,7 +238,7 @@ def get_stats(id):
     data = sorted(data, key=lambda x: float(x['product_price']), reverse=True)
     global sdata
     sdata = jsonify(data)
-    return redirect('http://141.147.64.158:8501/')
+    return render_template("stats.html", sdata = sdata)
 
 
 @app.route('/getstatschart/')
