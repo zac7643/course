@@ -145,25 +145,25 @@
                             <input type="hidden" id="link" name="link" value='{{link}}' />
                 
                         </button>
-                    </form>
-                </td>
+                      </form>
+                  </td>
                 
               
 
 
                 {% endif %}
-                {% endfor %}
+              {% endfor %}
               {% elif key == "price" %}   <!-- If the key is "price" -->
                 <td style="color:#FF9900;"><b>£{{value}}</b></td>   <!-- Display the value associated with the "price" key in a table data cell, colored and bolded -->
               {% elif key == "image" %}   <!-- If the key is "image" -->
                 <td><img src="{{value}}" width="100" height="120"> </td>   <!-- Display an image with the source URL being the value associated with the "image" key -->
-              {% endif %}
+            {% endif %}
             
           {% endfor %}
-          {% endif %}
-            {% endfor %}
-            </tr>   <!-- End the table row -->
-          {% endfor %}   <!-- End the loop through each item in the "items" list -->
+        {% endif %}
+      {% endfor %}
+        </tr>   <!-- End the table row -->
+    {% endfor %}   <!-- End the loop through each item in the "items" list -->
 
 </table>
 
