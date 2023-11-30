@@ -224,7 +224,7 @@ def get_stats(id):
                 SELECT fav_id, product_price, price_date
                 FROM stats
                 WHERE fav_id = ? """,
-                (id))  
+                (id,))  
     rows = cur.fetchall()
     # Get column names from the cursor description
     column_names = [column[0] for column in cur.description]      
