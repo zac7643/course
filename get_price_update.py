@@ -47,6 +47,7 @@ def match():
             # Parse the URLs
             parsed_final_link = urlparse(final_link)
             parsed_product_link = urlparse(final_product_link)
+            print(parsed_product_link)
 
             # Remove 'qid' from the query parameters
             query_params1 = parse_qs(parsed_final_link.query)
@@ -61,6 +62,11 @@ def match():
                 con.commit()
             else:
                 print("No link found - error inserting into Status DB")
+            
+    con.commit()  # Commit the transaction
+    con.close()
 
 # Call the function
 match()
+
+
