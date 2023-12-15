@@ -3,6 +3,8 @@ import sqlite3 as sql
 import result
 import asearch
 import requests
+import smtplib
+from email.mime.text import MIMEText
 from datetime import datetime
 from urllib.parse import urlparse, parse_qs
 
@@ -59,6 +61,18 @@ def match():
             if (parsed_final_link.netloc, parsed_final_link.path, query_params1) == (parsed_product_link.netloc, parsed_product_link.path, query_params2):
                 today = datetime.now().strftime('%Y-%m-%d-%H:%M')
                 cur.execute("""INSERT INTO stats (fav_id, product_price, price_date) VALUES (?, ?, ?)""", (id, new_product_price, today))
+                message = MIMEText("The price of " + id + "is now" + new_product_price)
+                message["From"] = "zcameronwebb@icloud.com"
+                message["To"] = cur.execute("SELECT email FROM login WHERE username = ?", session["username"])
+                message["Subject"] = "Price Update"
+
+                mail_server = smtplib.SMTP("141.147.64.158")
+                mail_server.send_message(message)
+                mail_server.quit()
+
+                
+
+
                 con.commit()
             else:
                 print("No link found - error inserting into Status DB")
