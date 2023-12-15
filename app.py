@@ -12,7 +12,7 @@ app.config["SECRET_KEY"] = os.urandom(16)
 conn = sql.connect('database.db')
 print("Opened database successfully")
 
-conn.execute('CREATE TABLE IF NOT EXISTS login (username VARCHAR(20) NOT NULL PRIMARY KEY, password VARCHAR(20) NOT NULL)')
+conn.execute('CREATE TABLE IF NOT EXISTS login (username VARCHAR(20) NOT NULL PRIMARY KEY,email VARCHAR(20) NOT NULL, password VARCHAR(20) NOT NULL)')
 print("Login table created successfully")
 
 cur = conn.cursor()  # Create a cursor object
@@ -115,8 +115,8 @@ def loginverify():
     cur.execute("""
                 SELECT *
                 FROM login
-                WHERE username=? AND password=? """,
-                (request.form["username"],request.form["password"]))
+                WHERE username=? OR email=? AND password=? """,
+                (request.form["username"],request.form["email"], request.form["password"]))
 
     rows = cur.fetchall()
     if len(rows) == 1:
@@ -130,9 +130,9 @@ def login_insert():
     con = sql.connect("database.db")
     cur = con.cursor()
     cur.execute("""
-    INSERT INTO login (username,password)
-    VALUES (?,?)""",
-    (request.form["username"],request.form["password"]))
+    INSERT INTO login (username,email,password)
+    VALUES (?,?,?)""",
+    (request.form["username"],request.form["email"],request.form["password"]))
     con.commit()
     return redirect("/")
 
