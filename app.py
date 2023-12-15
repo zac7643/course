@@ -116,7 +116,7 @@ def loginverify():
                 SELECT *
                 FROM login
                 WHERE username=? OR email=? AND password=? """,
-                (request.form["username"],request.form["email"], request.form["password"]))
+                (request.form["user_input"],request.form["user_input"], request.form["password"]))
 
     rows = cur.fetchall()
     if len(rows) == 1:
