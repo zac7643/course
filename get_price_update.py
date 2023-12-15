@@ -10,7 +10,7 @@ from urllib.parse import urlparse, parse_qs
 
 def match():
     # Connect to the SQLite database
-    con = sql.connect("database.db")
+    con = sql.connect("/home/ubuntu/course/database.db")
     cur = con.cursor()
 
     # Execute a SQL command to get the search terms from the 'favs' table
