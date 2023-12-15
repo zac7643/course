@@ -120,7 +120,7 @@ def loginverify():
 
     rows = cur.fetchall()
     if len(rows) == 1:
-        session["username"] = request.form["username"]
+        session["username"] = rows[0][0]
         return redirect("/home")
     else:
         return "login not recognised"
