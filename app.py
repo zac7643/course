@@ -100,12 +100,6 @@ def login_insert():
     con = sql.connect("database.db")
     cur = con.cursor()
     cur.execute("""
-                INSERT INTO login (username,email,password)
-                VALUES (?,?,?)""",
-                (request.form["username"],request.form["email"],request.form["password"]))
-    con.commit()
-    
-    cur.execute("""
                 SELECT *
                 FROM login
                 WHERE username=? AND email=? AND password=? """,
@@ -113,8 +107,12 @@ def login_insert():
     
 
     rows = cur.fetchall()
-    if len(rows) == 1:
-        session["username"] = rows[0][0]
+    if len(rows) == 0:
+        cur.execute("""
+                INSERT INTO login (username,email,password)
+                VALUES (?,?,?)""",
+                (request.form["username"],request.form["email"],request.form["password"]))
+        con.commit()        
         return redirect("/")
     else:
         return "username or password taken"
