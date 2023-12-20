@@ -52,36 +52,6 @@ conn.close()  # Close the connection
 def home():
     return render_template("login.html")
 
-#@app.route("/home")
-#def login():
-    if "username" in session:
-        username = session["username"]
-        con = sql.connect("database.db")
-        con.row_factory = sql.Row
-
-        cur = con.cursor()
-        cur.execute("""
-            SELECT favs.product_name, stats.product_price, favs.product_image_url, favs.product_link, stats.price_date 
-            FROM favs 
-            INNER JOIN stats ON favs.id = stats.fav_id
-            INNER JOIN (
-                SELECT fav_id, MAX(price_date) as max_date
-                FROM stats
-                GROUP BY fav_id
-            ) AS max_stats ON stats.fav_id = max_stats.fav_id AND stats.price_date = max_stats.max_date
-            WHERE favs.USERNAME = ? 
-            ORDER BY stats.price_date DESC
-            """, (username,))
-        rows = cur.fetchall(); 
-        return render_template("homepage.html", username=username, rows=rows)
-    else:
-        username = "Not Logged in"
-    return redirect("/")
-
-
-
-
-
 @app.route("/home")
 def login():
     if "username" in session:
