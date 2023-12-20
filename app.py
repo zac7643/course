@@ -103,13 +103,14 @@ def login_insert():
                 INSERT INTO login (username,email,password)
                 VALUES (?,?,?)""",
                 (request.form["username"],request.form["email"],request.form["password"]))
+    con.commit()
     
     cur.execute("""
                 SELECT *
                 FROM login
                 WHERE username=? AND email=? AND password=? """,
                 (request.form["username"],request.form["email"], request.form["password"]))
-    con.commit()
+    
 
     rows = cur.fetchall()
     if len(rows) == 1:
