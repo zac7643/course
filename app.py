@@ -100,11 +100,23 @@ def login_insert():
     con = sql.connect("database.db")
     cur = con.cursor()
     cur.execute("""
-    INSERT INTO login (username,email,password)
-    VALUES (?,?,?)""",
-    (request.form["username"],request.form["email"],request.form["password"]))
+                INSERT INTO login (username,email,password)
+                VALUES (?,?,?)""",
+                (request.form["username"],request.form["email"],request.form["password"]))
     con.commit()
-    return redirect("/")
+    cur.execute("""
+                SELECT *
+                FROM login
+                WHERE username=? AND email=? AND password=? """,
+                (request.form["username"],request.form["email"], request.form["password"]))
+
+    rows = cur.fetchall()
+    if len(rows) == 1:
+        session["username"] = rows[0][0]
+        return redirect("/")
+    else:
+        return "username or password taken"
+    
 
 
 @app.route("/logout")
