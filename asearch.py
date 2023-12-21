@@ -6,7 +6,8 @@ def search(item):
     # define the URL of the API endpoint
     url = "https://price-analytics.p.rapidapi.com/search-by-term/"
 
-    # define the payload of the request, which includes the source (Amazon), the country (UK), and the item to search for
+    # define the payload of the request, which includes the source (Amazon), the country (UK), 
+    # and the item to search for
     payload = {
         "source": "amazon",
         "country": "uk",
@@ -25,3 +26,7 @@ def search(item):
 
     # return the JSON response from the API
     return response.json()
+
+
+
+
