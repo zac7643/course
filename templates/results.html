@@ -149,7 +149,7 @@
                   <td style="color:#FF9900;"><b>£{{value}}</b></td>   <!-- Display the value associated with the "price" key in a table data cell, colored and bolded -->
                   
                 {% elif key == "image" %}   <!-- If the key is "image" -->
-                  <td><a href="{{link}}"><img src="{{value}}"></a> </td>   <!-- Display an image with the source URL being the value associated with the "image" key -->
+                  <td><a href="{{link}}"><img src="{{value}}" style="width:225px;"></a> </td>   <!-- Display an image with the source URL being the value associated with the "image" key -->
                 
                 {% endif %}
               {% endfor %}
