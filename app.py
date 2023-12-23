@@ -152,7 +152,7 @@ def addfav():
         u = session["username"]
     else:
         print("No username in session")
-        return redirect("/login")  # or wherever you want to redirect
+        return redirect("/login")  
     con = sql.connect("database.db")
     cur = con.cursor()
     cur.execute("""
