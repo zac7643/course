@@ -165,6 +165,7 @@ def addfav():
         VALUES (?, ?, ?, ?, ?, ?, ?)
         """, (u, n, p, i, l, d, s))
         fav_id = cur.lastrowid  # Get the ID of the last inserted row
+        con.commit()
     finally:
         cur.close()  # Ensure the cursor is closed even if an error occurs
 
