@@ -62,10 +62,12 @@ def login():
         cur = con.cursor()
         cur.execute("""
         SELECT favs.*, stats.product_price FROM favs 
-        INNER JOIN stats ON favs.id = stats.id 
+        INNER JOIN stats ON favs.id = stats.fav_id 
         WHERE favs.USERNAME = ?
         """, (username,))
         rows = cur.fetchall(); 
+        cur.close()
+        con.close()
         return render_template("homepage.html", username=username, rows=rows)
     else:
         username = "Not Logged in"
