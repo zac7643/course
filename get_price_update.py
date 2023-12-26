@@ -69,6 +69,7 @@ def match():
                 mail_server = smtplib.SMTP("141.147.64.158")
                 mail_server.send_message(message)
                 mail_server.quit()
+                print("LINK FOUND")
 
                 
 
