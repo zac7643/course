@@ -159,7 +159,10 @@ def addfav():
     INSERT INTO favs (username, product_name, product_price, product_image_url, product_link, price_date, sterm)
     VALUES (?, ?, ?, ?, ?, ?, ?)
     """, (u, n, p, i, l, d, s))
-   
+    cur.execute("""
+    INSERT INTO stats (product_price)
+    VALUES (?)
+    """, (p))
     con.commit()
     print("Fav added to db")
     return redirect("/home")
