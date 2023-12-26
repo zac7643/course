@@ -92,11 +92,7 @@ def main():
 
 
 
-    # Create a line chart
-"""     try:
-        st.line_chart(chart_data)
-    except Exception as e:
-        st.write(f"Error creating chart: {e}") """
+
 
 
 
