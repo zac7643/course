@@ -38,7 +38,7 @@ cur.execute("""
     CREATE TABLE IF NOT EXISTS stats
     (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    fav_id INTEGER NOT NULL,        
+    fav_id INTEGER,        
     product_price VARCHAR(20) NOT NULL,  
     price_date VARCHAR(20) NOT NULL,
     FOREIGN KEY (fav_id) REFERENCES favs (id)
