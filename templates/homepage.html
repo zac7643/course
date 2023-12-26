@@ -84,7 +84,7 @@
       <!-- Link to the product -->
       <a style="color:#FF9900;" href="{{ row.product_link }}">{{ row.product_name }}:</a> 
       <!-- Price of the product -->
-      <a style="color:#0af416;">£{{ row.product_price_stats }} ({{ row.price_date }})</a> 
+      <a style="color:#0af416;">£{{ row.product_price_stats }} ({{ row.price_date_stats }})</a> 
       <!-- Link to delete the product from favorites -->
       <a href="{{ url_for('delete_fav', id=row.id) }}" style="color:#de0707;">DELETE</a>
       <!-- Link to get stats of the product -->
