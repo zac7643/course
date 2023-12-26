@@ -241,7 +241,7 @@ def get_stats(id):
     # Convert rows to list of dictionaries
     data = [dict(zip(column_names, row)) for row in rows]
     # Sort data by 'product_price' in descending order
-    data = sorted(data, key=lambda x: float(x['product_price']), reverse=False)
+    data = sorted(data, key=lambda x: float(x['product_price_stats']), reverse=False)
     global sdata
     sdata = jsonify(data)
     print(data)
