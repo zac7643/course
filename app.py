@@ -171,7 +171,7 @@ def addfav():
         cur.execute("""
         INSERT INTO stats (product_price)
         VALUES (?)
-        """, (p))
+        """, (p,))
         con.commit()
     finally:
         cur.close()  # Ensure the cursor is closed even if an error occurs
