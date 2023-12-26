@@ -221,7 +221,7 @@ def get_stats(id):
     global sdata
     sdata = jsonify(data)
     print(data)
-    return redirect('http://localhost:8501/')
+    return redirect('http://141.147.64.158:8501')
 
 
 @app.route('/getstatschart/')
