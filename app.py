@@ -61,7 +61,7 @@ def login():
 
         cur = con.cursor()
         cur.execute("""
-        SELECT favs.*, stats.product_price FROM favs 
+        SELECT favs.*, stats.product_price_stats FROM favs 
         INNER JOIN stats ON favs.id = stats.fav_id 
         WHERE favs.USERNAME = ?
         """, (username,))
