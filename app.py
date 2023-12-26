@@ -173,7 +173,7 @@ def addfav():
     try:
         cur = con.cursor()
         cur.execute("""
-        INSERT INTO stats (fav_id, product_price_stats, price_date)
+        INSERT INTO stats (fav_id, product_price_stats, price_date_stats)
         VALUES (?, ?, ?)
         """, (fav_id, p, d))  
         con.commit()
@@ -219,7 +219,7 @@ def addstats():
     con = sql.connect("database.db")
     cur = con.cursor()
     cur.execute("""
-    INSERT INTO stats (fav_id, product_price_stats, price_date)
+    INSERT INTO stats (fav_id, product_price_stats, price_date_stats)
     VALUES (?, ?, ?)
     """, (fav_id, p, d))
     con.commit()
@@ -231,7 +231,7 @@ def get_stats(id):
     con = sql.connect("database.db")
     cur = con.cursor()
     cur.execute("""
-                SELECT fav_id, product_price_stats, price_date
+                SELECT fav_id, product_price_stats, price_date_stats
                 FROM stats
                 WHERE fav_id = ? """,
                 (id,))  
