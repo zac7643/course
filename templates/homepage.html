@@ -88,7 +88,7 @@
       <!-- Link to delete the product from favorites -->
       <a href="{{ url_for('delete_fav', id=row.id) }}" style="color:#de0707;">DELETE</a>
       <!-- Link to get stats of the product -->
-      <!-- <a href="{{ url_for('get_stats', id=row.id )}}" style="color:#076bde;">stats</a></li> -->
+      <a href="{{ url_for('get_stats', id=row.id )}}" style="color:#076bde;">stats</a></li>
     {% endfor %}
   
     </ul>
