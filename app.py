@@ -155,21 +155,30 @@ def addfav():
     else:
         print("No username in session")
         return redirect("/login")  
-    with sql.connect("database.db") as con:
-        with con.cursor() as cur:
-            cur.execute("""
-            INSERT INTO favs (username, product_name, product_price, product_image_url, product_link, price_date, sterm)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
-            """, (u, n, p, i, l, d, s))
+    con = sql.connect("database.db")
+    try:
+        cur = con.cursor()
+        cur.execute("""
+        INSERT INTO favs (username, product_name, product_price, product_image_url, product_link, price_date, sterm)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, (u, n, p, i, l, d, s))
+    finally:
+        cur.close()  # Ensure the cursor is closed even if an error occurs
 
-        with con.cursor() as cur:
-            cur.execute("""
-            INSERT INTO stats (product_price)
-            VALUES (?)
-            """, (p))
-            con.commit()
+    con = sql.connect("database.db")
+    try:
+        cur = con.cursor()
+        cur.execute("""
+        INSERT INTO stats (product_price)
+        VALUES (?)
+        """, (p))
+        con.commit()
+    finally:
+        cur.close()  # Ensure the cursor is closed even if an error occurs
+
     print("Fav added to db")
     return redirect("/home")
+
 
 
 
