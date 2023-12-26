@@ -221,7 +221,7 @@ def get_stats(id):
     global sdata
     sdata = jsonify(data)
     print(data)
-    return render_template("stats.html", data = data)
+    return redirect('http://localhost:8501/')
 
 
 @app.route('/getstatschart/')

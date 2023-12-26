@@ -42,9 +42,9 @@ import numpy as np
 
 
 
-""" def main():
+def main():
     st.title('Streamlit Frontend for Flask API')
-    response = requests.get('http://141.147.64.158:8501/getstatschart/')
+    response = requests.get('http://localhost:4999/getstatschart/')
     content = response.text  # Get the content of the response as a string
     content = content.strip()  # Now you can use the strip() method
     st.write(f"Response status code: {response.status_code}")
@@ -74,7 +74,7 @@ import numpy as np
         st.pyplot(fig)
     except Exception as e:
         st.write(f"Error creating chart: {e}")
- """
+
 
 
 
