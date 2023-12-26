@@ -56,7 +56,7 @@ def main():
         chart_data = pd.DataFrame(data)
         # Reorder columns so 'product_price' is first and 'price_date' is second
         chart_data = chart_data[['product_price_stats', 'price_date']]
-        chart_data['product_price_stats'] = chart_data['product_price'].astype(float)
+        chart_data['product_price_stats'] = chart_data['product_price_stats'].astype(float)
         chart_data['price_date'] = pd.to_datetime(chart_data['price_date']).dt.date  # Convert 'price_date' to date without time
         chart_data.sort_values('price_date', inplace=True)  # Sort by 'price_date' in ascending order
         st.write(chart_data)  # Display the DataFrame
