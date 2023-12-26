@@ -162,13 +162,6 @@ def addfav():
         INSERT INTO favs (username, product_name, product_price, product_image_url, product_link, price_date, sterm)
         VALUES (?, ?, ?, ?, ?, ?, ?)
         """, (u, n, p, i, l, d, s))
-        con = sql.connect("database.db")
-    try:
-        cur = con.cursor()
-        cur.execute("""
-        INSERT INTO favs (username, product_name, product_price, product_image_url, product_link, price_date, sterm)
-        VALUES (?, ?, ?, ?, ?, ?, ?)
-        """, (u, n, p, i, l, d, s))
         fav_id = cur.lastrowid  # Get the ID of the last inserted row
     finally:
         cur.close()  # Ensure the cursor is closed even if an error occurs
