@@ -40,7 +40,7 @@ cur.execute("""
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     fav_id INTEGER NOT NULL,        
     product_price_stats VARCHAR(20) NOT NULL,  
-    price_date VARCHAR(20) NOT NULL,
+    price_date_stats VARCHAR(20) NOT NULL,
     FOREIGN KEY (fav_id) REFERENCES favs (id)
     )
     """)
