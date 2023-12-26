@@ -61,8 +61,10 @@ def login():
 
         cur = con.cursor()
         cur.execute("""
-            SELECT * FROM favs WHERE USERNAME = ?
-            """, (username,))
+        SELECT favs.*, stats.product_price FROM favs 
+        INNER JOIN stats ON favs.id = stats.id 
+        WHERE favs.USERNAME = ?
+        """, (username,))
         rows = cur.fetchall(); 
         return render_template("homepage.html", username=username, rows=rows)
     else:
@@ -153,19 +155,23 @@ def addfav():
     else:
         print("No username in session")
         return redirect("/login")  
-    con = sql.connect("database.db")
-    cur = con.cursor()
-    cur.execute("""
-    INSERT INTO favs (username, product_name, product_price, product_image_url, product_link, price_date, sterm)
-    VALUES (?, ?, ?, ?, ?, ?, ?)
-    """, (u, n, p, i, l, d, s))
-    cur.execute("""
-    INSERT INTO stats (product_price)
-    VALUES (?)
-    """, (p))
-    con.commit()
+    with sql.connect("database.db") as con:
+        with con.cursor() as cur:
+            cur.execute("""
+            INSERT INTO favs (username, product_name, product_price, product_image_url, product_link, price_date, sterm)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+            """, (u, n, p, i, l, d, s))
+
+        with con.cursor() as cur:
+            cur.execute("""
+            INSERT INTO stats (product_price)
+            VALUES (?)
+            """, (p))
+            con.commit()
     print("Fav added to db")
     return redirect("/home")
+
+
 
 @app.route("/deletefav/<id>")
 def delete_fav(id):
