@@ -55,8 +55,8 @@ def main():
         # Convert 'data' list of dictionaries to DataFrame
         chart_data = pd.DataFrame(data)
         # Reorder columns so 'product_price' is first and 'price_date' is second
-        chart_data = chart_data[['product_price', 'price_date']]
-        chart_data['product_price'] = chart_data['product_price'].astype(float)
+        chart_data = chart_data[['product_price_stats', 'price_date']]
+        chart_data['product_price_stats'] = chart_data['product_price'].astype(float)
         chart_data['price_date'] = pd.to_datetime(chart_data['price_date']).dt.date  # Convert 'price_date' to date without time
         chart_data.sort_values('price_date', inplace=True)  # Sort by 'price_date' in ascending order
         st.write(chart_data)  # Display the DataFrame
@@ -65,15 +65,6 @@ def main():
         return  # If there's an error, we return and don't attempt to draw the chart
 
 
-# Create a line chart with 'product_price' on the y-axis
-    try:
-        fig, ax = plt.subplots()
-        ax.plot(chart_data['price_date'], chart_data['product_price'], marker='o')  # Removed linestyle=''
-        ax.set_xticks(chart_data['price_date'])  # Set x-ticks to be the actual data points
-        ax.set_yticks(chart_data['product_price'])  # Set y-ticks to be the actual data points
-        st.pyplot(fig)
-    except Exception as e:
-        st.write(f"Error creating chart: {e}")
 
 
 
