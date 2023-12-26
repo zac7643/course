@@ -60,7 +60,7 @@ def match():
             # If the links match, insert the new price into the 'stats' table
             if (parsed_final_link.netloc, parsed_final_link.path, query_params1) == (parsed_product_link.netloc, parsed_product_link.path, query_params2):
                 today = datetime.now().strftime('%Y-%m-%d-%H:%M')
-                cur.execute("""INSERT INTO stats (fav_id, product_price, price_date) VALUES (?, ?, ?)""", (id, new_product_price, today))
+                cur.execute("""INSERT INTO stats (fav_id, product_price_stats, price_date) VALUES (?, ?, ?)""", (id, new_product_price, today))
                 message = MIMEText("The price of " + id + "is now" + new_product_price)
                 message["From"] = "zcameronwebb@icloud.com"
                 message["To"] = cur.execute("SELECT email FROM login WHERE username = ?", session["username"])
