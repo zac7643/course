@@ -68,9 +68,9 @@ def main():
 # Create a line chart with 'product_price' on the y-axis
     try:
         fig, ax = plt.subplots()
-        ax.plot(chart_data['price_date'], chart_data['product_price'], marker='o')  # Removed linestyle=''
+        ax.plot(chart_data['price_date'], chart_data['product_price_stats'], marker='o')  # Removed linestyle=''
         ax.set_xticks(chart_data['price_date'])  # Set x-ticks to be the actual data points
-        ax.set_yticks(chart_data['product_price'])  # Set y-ticks to be the actual data points
+        ax.set_yticks(chart_data['product_price_stats'])  # Set y-ticks to be the actual data points
         st.pyplot(fig)
     except Exception as e:
         st.write(f"Error creating chart: {e}")
