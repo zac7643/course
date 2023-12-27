@@ -218,6 +218,14 @@ def addstats():
 
     con = sql.connect("database.db")
     cur = con.cursor()
+    # Update the current price and date in the main table
+    cur.execute("""
+    UPDATE favs
+    SET product_price = ?, price_date = ?
+    WHERE id = ?
+    """, (p, d, fav_id))
+
+    # Insert the historical price and date into the stats table
     cur.execute("""
     INSERT INTO stats (fav_id, product_price_stats, price_date_stats)
     VALUES (?, ?, ?)
@@ -225,6 +233,7 @@ def addstats():
     con.commit()
     print("Stat added to db")
     return redirect("/home")
+
 
 @app.route('/getstats/<id>')
 def get_stats(id):
