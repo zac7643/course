@@ -61,8 +61,7 @@ def login():
 
         cur = con.cursor()
         cur.execute("""
-        SELECT favs.*, stats.product_price_stats, stats.price_date_stats FROM favs 
-        INNER JOIN stats ON favs.id = stats.fav_id 
+        SELECT favs FROM favs 
         WHERE favs.USERNAME = ?
         """, (username,))
         rows = cur.fetchall(); 
