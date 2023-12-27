@@ -66,7 +66,9 @@ def match():
                 message["To"] = cur.execute("SELECT email FROM login WHERE username = ?", session["username"])
                 message["Subject"] = "Price Update"
 
-                mail_server = smtplib.SMTP("141.147.64.158")
+                mail_server = smtplib.SMTP("smtp.mail.me.com", 587)
+                mail_server.starttls()
+                mail_server.login("zcameronwebb@icloud.com", "z.aCapril.30!")
                 mail_server.send_message(message)
                 mail_server.quit()
                 print("LINK FOUND")
