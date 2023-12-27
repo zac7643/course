@@ -61,7 +61,7 @@ def login():
 
         cur = con.cursor()
         cur.execute("""
-        SELECT favs FROM favs 
+        SELECT * FROM favs 
         WHERE favs.USERNAME = ?
         """, (username,))
         rows = cur.fetchall(); 
