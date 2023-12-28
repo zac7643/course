@@ -1,4 +1,4 @@
-from flask import request
+from flask import request, session
 import resul
 import sqlite3 as sql
 
