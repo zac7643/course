@@ -96,16 +96,16 @@ def match():
                 if product_id_final_link.group(2) == product_id_product_link.group(2):
                     today = datetime.now().strftime('%Y-%m-%d-%H:%M')
                     cur.execute("""INSERT INTO stats (fav_id, product_price_stats, price_date_stats) VALUES (?, ?, ?)""", (id, new_product_price, today))
-                    message = MIMEText("The price of " + id + "is now" + new_product_price)
-                    message["From"] = "zcameronwebb@icloud.com"
-                    message["To"] = cur.execute("SELECT email FROM login WHERE username = ?", session["username"])
-                    message["Subject"] = "Price Update"
+                    # message = MIMEText("The price of " + id + "is now" + new_product_price)
+                    # message["From"] = "zcameronwebb@icloud.com"
+                    # message["To"] = cur.execute("SELECT email FROM login WHERE username = ?", session["username"])
+                    # message["Subject"] = "Price Update"
 
-                    mail_server = smtplib.SMTP("smtp.mail.me.com", 587)
-                    mail_server.starttls()
-                    mail_server.login("zcameronwebb@icloud.com", "z.aCapril.30!")
-                    mail_server.send_message(message)
-                    mail_server.quit()
+                    # mail_server = smtplib.SMTP("smtp.mail.me.com", 587)
+                    # mail_server.starttls()
+                    # mail_server.login("zcameronwebb@icloud.com", "z.aCapril.30!")
+                    # mail_server.send_message(message)
+                    # mail_server.quit()
                     print("LINK FOUND")
 
                     con.commit()
