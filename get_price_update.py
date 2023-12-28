@@ -59,6 +59,14 @@ def match():
                 query_params1.pop(param, None)
                 query_params2.pop(param, None)
 
+            print(parsed_final_link.netloc)
+            print(parsed_final_link.path)
+            print(query_params1)
+            print("space")
+            print(parsed_product_link.netloc)
+            print(parsed_product_link.path)
+            print(query_params2)
+
             # If the links match, insert the new price into the 'stats' table
             if (parsed_final_link.netloc, parsed_final_link.path, query_params1) == (parsed_product_link.netloc, parsed_product_link.path, query_params2):
                 today = datetime.now().strftime('%Y-%m-%d-%H:%M')
