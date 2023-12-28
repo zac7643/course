@@ -51,24 +51,28 @@ def match():
             parsed_product_link = urlparse(final_product_link)
             print(parsed_product_link)
 
-            # Remove 'qid' from the query parameters
+           """  # Remove 'qid' from the query parameters
             query_params1 = parse_qs(parsed_final_link.query)
             query_params2 = parse_qs(parsed_product_link.query)
             tracking_parameters = ['qid', 'ref', 'pf_rd_p', 'pf_rd_r', 'smid', 'psc']
             for param in tracking_parameters:
                 query_params1.pop(param, None)
-                query_params2.pop(param, None)
+                query_params2.pop(param, None) """
 
-            print(parsed_final_link.netloc)
+            """ print(parsed_final_link.netloc)
             print(parsed_final_link.path)
             print(query_params1)
             print("space")
             print(parsed_product_link.netloc)
             print(parsed_product_link.path)
-            print(query_params2)
+            print(query_params2) """
+        
+            # Extract the product ID from the URLs
+            product_id_final_link = parsed_final_link.path.split('/')[3]
+            product_id_product_link = parsed_product_link.path.split('/')[3]
 
-            # If the links match, insert the new price into the 'stats' table
-            if (parsed_final_link.netloc, parsed_final_link.path, query_params1) == (parsed_product_link.netloc, parsed_product_link.path, query_params2):
+            # If the domains and product IDs match, insert the new price into the 'stats' table
+            if (parsed_final_link.netloc, product_id_final_link) == (parsed_product_link.netloc, product_id_product_link):
                 today = datetime.now().strftime('%Y-%m-%d-%H:%M')
                 cur.execute("""INSERT INTO stats (fav_id, product_price_stats, price_date_stats) VALUES (?, ?, ?)""", (id, new_product_price, today))
                 message = MIMEText("The price of " + id + "is now" + new_product_price)
