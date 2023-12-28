@@ -13,48 +13,78 @@
     <link rel="stylesheet" href="static/homepageCSS.css">
     <!-- Inline CSS for styling -->
     <style>
-      /* Styling the list of favorite products */
-        ul {
-          list-style-type: none; /* Removes the default bullet points of the list */
-          padding: 0; /* Removes the default padding of the list */
-          margin: 0; /* Removes the default margin of the list */
-        }
+          /* Styling the list of favorite products */
+          ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 auto; /* Centers the list horizontally */
+            max-width: 800px; /* Limits the maximum width of the list */
+          }
 
-        /* Styling the list items */
-        ul li {
-          background-color: #232f3e; /* Sets the background color of the list items */
-          padding: 10px; /* Adds some padding around the list items */
-          margin-bottom: 10px; /* Adds some margin to the bottom of the list items */
-          border-radius: 5px; /* Rounds the corners of the list items */
-          transition: background-color 0.3s ease; /* Adds a transition effect when the background color changes */
-        }
+          /* Styling the list items */
+          ul li {
+            background-color: #232f3e;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+          }
 
-        /* Styling the list items when hovered over */
-        ul li:hover {
-          background-color: #232f50; /* Changes the background color of the list items when hovered over */
-        }
+          /* Styling the list items when hovered over */
+          ul li:hover {
+            background-color: #232f50;
+          }
 
-        /* Styling the product images */
-        ul li img {
-          border-radius: 5px; /* Rounds the corners of the product images */
-          margin-right: 10px; /* Adds some margin to the right of the product images */
-        }
+          /* Styling the product images */
+          ul li img {
+            border-radius: 5px;
+            margin-right: 10px;
+          }
 
-        /* Styling the product links */
-        ul li a {
-          color: #fff; /* Sets the color of the product links */
-          text-decoration: none; /* Removes the underline of the product links */
-        }
+          /* Styling the product links */
+          ul li a {
+            color: #fff;
+            text-decoration: none;
+          }
 
-        /* Styling the product links when hovered over */
-        ul li a:hover {
-          color: #FF9900; /* Changes the color of the product links when hovered over */
-        }
+          /* Styling the product links when hovered over */
+          ul li a:hover {
+            color: #FF9900;
+          }
 
-        /* Styling the product prices */
-        ul li a.price {
-          color: #0af416; /* Sets the color of the product prices */
-        }
+          /* Styling the product prices */
+          ul li a.price {
+            color: #0af416;
+          }
+
+          /* Styling the delete and stats buttons */
+          .btn {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px 0;
+            background-color: #FF9900;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+          }
+
+          .btn:hover {
+            background-color: #e68a00;
+          }
+
+          /* Styling the "Your Favorites" heading */
+          h2 {
+            text-align: center; /* Centers the heading horizontally */
+            font-family: 'Arial', sans-serif; /* Sets the font of the heading */
+            font-weight: bold; /* Makes the heading bold */
+            font-size: 24px; /* Sets the size of the heading */
+            color: #FF9900;
+          }
+
 
         /* Styling the delete and stats buttons */
         .btn {
@@ -160,19 +190,22 @@
     <h2 style="color:#FF9900;"><b>Your Favorites:</b></h2>
     <ul>
     <!-- Loop through rows to display each product -->
-    {% for row in rows %}
-      <li> 
-        <img src="{{ row.product_image_url }}" width="100"> 
-        <!-- Link to the product -->
-        <a href="{{ row.product_link }}">{{ row.product_name }}:</a> 
-        <!-- Price of the product -->
-        <a class="price">£{{ row.product_price }} ({{ row.price_date }})</a> 
-        <!-- Link to delete the product from favorites -->
-        <a href="{{ url_for('delete_fav', id=row.id) }}" class="btn">DELETE</a>
-        <!-- Link to get stats of the product -->
-        <a href="{{ url_for('get_stats', id=row.id )}}" class="btn">stats</a>
-      </li>
-    {% endfor %}
+    <!-- "Your Favorites" heading -->
+    <h2>Your Favorites:</h2>
+
+    <!-- List of favorite products -->
+    <ul>
+      {% for row in rows %}
+        <li> 
+          <img src="{{ row.product_image_url }}" width="100"> 
+          <a href="{{ row.product_link }}">{{ row.product_name }}:</a> 
+          <a class="price">£{{ row.product_price }} ({{ row.price_date }})</a> 
+          <a href="{{ url_for('delete_fav', id=row.id) }}" class="btn">DELETE</a>
+          <a href="{{ url_for('get_stats', id=row.id )}}" class="btn">stats</a>
+        </li>
+      {% endfor %}
+    </ul>
+
 
   
     </ul>
