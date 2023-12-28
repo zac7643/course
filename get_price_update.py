@@ -100,7 +100,7 @@ def match():
                     UPDATE favs
                     SET product_price = ?, price_date = ?
                     WHERE id = ?
-                    """, (p, d, fav_id))
+                    """, (new_product_price, today, id))
                     # message = MIMEText("The price of " + id + "is now" + new_product_price)
                     # message["From"] = "zcameronwebb@icloud.com"
                     # message["To"] = cur.execute("SELECT email FROM login WHERE username = ?", session["username"])
