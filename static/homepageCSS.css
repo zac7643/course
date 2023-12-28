@@ -40,7 +40,7 @@ body {
 }
 
 .search-bar {
-  background-color: black; /* Sets the background color of the search bar to black */
+  background-color: #232f3e; /* Sets the background color of the search bar to black */
   color: white; /* Sets the color of the text in the search bar to white */
   padding: 20px; /* Adds padding to the search bar */
   text-align: center; /* Centers the text in the search bar */
