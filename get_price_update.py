@@ -72,8 +72,15 @@ def match():
             # product_id_final_link = parsed_final_link.path.split('/')[3]
             # product_id_product_link = parsed_product_link.path.split('/')[3]
             # Extract the product ID from the URLs
+
+            print("Final link:", parsed_final_link.path)
+            print("Product link:", parsed_product_link.path)
+
             product_id_final_link = re.search(r'/(dp|gp)/(\w+)', parsed_final_link.path)
             product_id_product_link = re.search(r'/(dp|gp)/(\w+)', parsed_product_link.path)
+            
+            print("Final link:", parsed_final_link.path)
+            print("Product link:", parsed_product_link.path)
 
             if product_id_final_link and product_id_product_link:
                 # Compare the product IDs
