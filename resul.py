@@ -4,7 +4,7 @@ import json
 
 
 # Define a function named "result" that takes a jobid as an argument
-def results(jobid):
+def result(jobid):
     # Concatenate the jobid to the base URL
     url = "https://price-analytics.p.rapidapi.com/poll-job/" + jobid
     # Print the URL for debugging purposes

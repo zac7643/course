@@ -138,7 +138,7 @@ def search():
     #jobid = "65688fe856526c5afddf9079"
     print(jobid)
     global_sterm = p
-    o = resul.result (jobid)
+    o = resul.result(jobid)
     return render_template("results.html",  o = o)
 
 @app.route("/addfav", methods=["POST"])

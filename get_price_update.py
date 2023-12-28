@@ -30,7 +30,7 @@ def match():
         # Perform the search
         r = asearch.search(search)
         jobid = r["job_id"]
-        product_list = resul.results(jobid)
+        product_list = resul.result(jobid)
 
         # For each product in the list, get its details
         for product in product_list:
