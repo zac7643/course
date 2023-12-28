@@ -4,6 +4,7 @@ import result
 import asearch
 import requests
 import smtplib
+import re
 from email.mime.text import MIMEText
 from datetime import datetime
 from urllib.parse import urlparse, parse_qs
@@ -67,29 +68,37 @@ def match():
             print(parsed_product_link.path)
             print(query_params2) """
         
+            # # Extract the product ID from the URLs
+            # product_id_final_link = parsed_final_link.path.split('/')[3]
+            # product_id_product_link = parsed_product_link.path.split('/')[3]
             # Extract the product ID from the URLs
-            product_id_final_link = parsed_final_link.path.split('/')[3]
-            product_id_product_link = parsed_product_link.path.split('/')[3]
+            product_id_final_link = re.search(r'/(dp|gp)/(\w+)', parsed_final_link.path)
+            product_id_product_link = re.search(r'/(dp|gp)/(\w+)', parsed_product_link.path)
 
-            # If the domains and product IDs match, insert the new price into the 'stats' table
-            if (parsed_final_link.netloc, product_id_final_link) == (parsed_product_link.netloc, product_id_product_link):
-                today = datetime.now().strftime('%Y-%m-%d-%H:%M')
-                cur.execute("""INSERT INTO stats (fav_id, product_price_stats, price_date_stats) VALUES (?, ?, ?)""", (id, new_product_price, today))
-                message = MIMEText("The price of " + id + "is now" + new_product_price)
-                message["From"] = "zcameronwebb@icloud.com"
-                message["To"] = cur.execute("SELECT email FROM login WHERE username = ?", session["username"])
-                message["Subject"] = "Price Update"
+            if product_id_final_link and product_id_product_link:
+                # Compare the product IDs
+                if product_id_final_link.group(2) == product_id_product_link.group(2):
+                    today = datetime.now().strftime('%Y-%m-%d-%H:%M')
+                    cur.execute("""INSERT INTO stats (fav_id, product_price_stats, price_date_stats) VALUES (?, ?, ?)""", (id, new_product_price, today))
+                    message = MIMEText("The price of " + id + "is now" + new_product_price)
+                    message["From"] = "zcameronwebb@icloud.com"
+                    message["To"] = cur.execute("SELECT email FROM login WHERE username = ?", session["username"])
+                    message["Subject"] = "Price Update"
 
-                mail_server = smtplib.SMTP("smtp.mail.me.com", 587)
-                mail_server.starttls()
-                mail_server.login("zcameronwebb@icloud.com", "z.aCapril.30!")
-                mail_server.send_message(message)
-                mail_server.quit()
-                print("LINK FOUND")
+                    mail_server = smtplib.SMTP("smtp.mail.me.com", 587)
+                    mail_server.starttls()
+                    mail_server.login("zcameronwebb@icloud.com", "z.aCapril.30!")
+                    mail_server.send_message(message)
+                    mail_server.quit()
+                    print("LINK FOUND")
 
-                con.commit()
+                    con.commit()
             else:
                 print("No link found - error inserting into Status DB")
+
+           
+            
+                
             
     con.commit()  # Commit the transaction
     con.close()
