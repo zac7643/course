@@ -93,8 +93,10 @@ def match():
                     print("LINK FOUND")
 
                     con.commit()
+                else:
+                    print("No link found - error inserting into Status DB")
             else:
-                print("No link found - error inserting into Status DB")
+                print("not even a match")
 
            
             
