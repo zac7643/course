@@ -54,8 +54,10 @@ def match():
             # Remove 'qid' from the query parameters
             query_params1 = parse_qs(parsed_final_link.query)
             query_params2 = parse_qs(parsed_product_link.query)
-            query_params1.pop('qid', None)
-            query_params2.pop('qid', None)
+            tracking_parameters = ['qid', 'ref', 'pf_rd_p', 'pf_rd_r', 'smid', 'psc']
+            for param in tracking_parameters:
+                query_params1.pop(param, None)
+                query_params2.pop(param, None)
 
             # If the links match, insert the new price into the 'stats' table
             if (parsed_final_link.netloc, parsed_final_link.path, query_params1) == (parsed_product_link.netloc, parsed_product_link.path, query_params2):
@@ -72,9 +74,6 @@ def match():
                 mail_server.send_message(message)
                 mail_server.quit()
                 print("LINK FOUND")
-
-                
-
 
                 con.commit()
             else:
