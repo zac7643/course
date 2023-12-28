@@ -1,6 +1,7 @@
 from flask import request
+import resul
 import sqlite3 as sql
-import result
+
 import asearch
 import requests
 import smtplib
@@ -29,7 +30,7 @@ def match():
         # Perform the search
         r = asearch.search(search)
         jobid = r["job_id"]
-        product_list = result.results(jobid)
+        product_list = resul.results(jobid)
 
         # For each product in the list, get its details
         for product in product_list:

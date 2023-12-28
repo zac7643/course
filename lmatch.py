@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, session, redirect, url_for, jsonify
 import os
 import sqlite3 as sql
-import result
+import resul
 import asearch
 from datetime import datetime
 
@@ -26,7 +26,7 @@ def match():
     # Get the job_id from the result of the search
     jobid = r["job_id"]
     # Use the result module to get the results of the search using the job_id
-    o = result.result(jobid) 
+    o = resul.result(jobid) 
     # Execute a SQL query to select the product link from the favs table where the fav_id matches the provided id
     cur.execute("""
                 SELECT product_link
