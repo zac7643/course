@@ -99,16 +99,17 @@ def match():
                     cur.execute("""INSERT INTO stats (fav_id, product_price_stats, price_date_stats) VALUES (?, ?, ?)""", (id, new_product_price, today))
 
                     # Fetch product_price from favs table
-                    cur.execute("SELECT product_price, username FROM favs WHERE id = ?", (id,))
+                    cur.execute("SELECT product_price, username, product_name FROM favs WHERE id = ?", (id,))
                     result = cur.fetchone()
                     if result is not None:
                         product_price = result[0]
                         username = result[1]
+                        product_name = result[2]
                     else:
                         print("No product found with id", id)
 
                     if new_product_price != product_price:
-                        message = MIMEText("The price of " + str(id) + " is now " + str(new_product_price))
+                        message = MIMEText("The price of " + str(product_name) + " is now " + str(new_product_price))
                         message["From"] = "zcameronwebb@icloud.com"
                         cur.execute("SELECT email FROM login WHERE username = ?", (username,))
                         recipient = cur.fetchone()
