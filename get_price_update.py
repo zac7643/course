@@ -51,7 +51,7 @@ def match():
             parsed_product_link = urlparse(final_product_link)
             print(parsed_product_link)
 
-           """  # Remove 'qid' from the query parameters
+            """  # Remove 'qid' from the query parameters
             query_params1 = parse_qs(parsed_final_link.query)
             query_params2 = parse_qs(parsed_product_link.query)
             tracking_parameters = ['qid', 'ref', 'pf_rd_p', 'pf_rd_r', 'smid', 'psc']
