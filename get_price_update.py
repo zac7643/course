@@ -96,6 +96,11 @@ def match():
                 if product_id_final_link.group(2) == product_id_product_link.group(2):
                     today = datetime.now().strftime('%Y-%m-%d-%H:%M')
                     cur.execute("""INSERT INTO stats (fav_id, product_price_stats, price_date_stats) VALUES (?, ?, ?)""", (id, new_product_price, today))
+                    cur.execute("""
+                    UPDATE favs
+                    SET product_price = ?, price_date = ?
+                    WHERE id = ?
+                    """, (p, d, fav_id))
                     # message = MIMEText("The price of " + id + "is now" + new_product_price)
                     # message["From"] = "zcameronwebb@icloud.com"
                     # message["To"] = cur.execute("SELECT email FROM login WHERE username = ?", session["username"])
