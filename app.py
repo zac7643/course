@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, session, redirect, url_for, jsonify
 import os
 import sqlite3 as sql
-import result
+import resul
 import asearch
 #import get_price_update
 from datetime import datetime
@@ -138,7 +138,7 @@ def search():
     #jobid = "65688fe856526c5afddf9079"
     print(jobid)
     global_sterm = p
-    o = result.result (jobid)
+    o = resul.result (jobid)
     return render_template("results.html",  o = o)
 
 @app.route("/addfav", methods=["POST"])
