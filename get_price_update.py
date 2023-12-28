@@ -91,60 +91,51 @@ def match():
             print("Final link match:", product_id_final_link)
             print("Product link match:", product_id_product_link)
 
-        if product_id_final_link and product_id_product_link:
-    # Compare the product IDs
-            if product_id_final_link.group(2) == product_id_product_link.group(2):
-                today = datetime.now().strftime('%Y-%m-%d-%H:%M')
-                cur.execute("""INSERT INTO stats (fav_id, product_price_stats, price_date_stats) VALUES (?, ?, ?)""", (id, new_product_price, today))
+            if product_id_final_link and product_id_product_link:
+            # Compare the product IDs
+                if product_id_final_link.group(2) == product_id_product_link.group(2):
+                    today = datetime.now().strftime('%Y-%m-%d-%H:%M')
+                    cur.execute("""INSERT INTO stats (fav_id, product_price_stats, price_date_stats) VALUES (?, ?, ?)""", (id, new_product_price, today))
 
-                # Fetch product_price from favs table
-                cur.execute("SELECT product_price FROM favs WHERE id = ?", (id,))
-                result = cur.fetchone()
-                if result is not None:
-                    product_price = result[0]
-                else:
-                    print("No product found with id", id)
-
-                if new_product_price != product_price:
-                    message = MIMEText("The price of " + str(id) + " is now " + str(new_product_price))
-                    message["From"] = "zcameronwebb@icloud.com"
-                    cur.execute("SELECT email FROM login WHERE username = ?", (session["username"],))
-                    recipient = cur.fetchone()
-                    if recipient is not None:
-                        message["To"] = recipient[0]
+                    # Fetch product_price from favs table
+                    cur.execute("SELECT product_price FROM favs WHERE id = ?", (id,))
+                    result = cur.fetchone()
+                    if result is not None:
+                        product_price = result[0]
                     else:
-                        print("No recipient found")
-                    message["Subject"] = "Price Update"
+                        print("No product found with id", id)
 
-                    mail_server = smtplib.SMTP("smtp.mail.me.com", 587)
-                    mail_server.starttls()
-                    mail_server.login("zcameronwebb@icloud.com", "z.aCapril.30!")
-                    mail_server.send_message(message)
-                    mail_server.quit()
-                
-                print("LINK FOUND")
-                cur.execute("""
-                UPDATE favs
-                SET product_price = ?, price_date = ?
-                WHERE id = ?
-                """, (new_product_price, today, id))
+                    if new_product_price != product_price:
+                        message = MIMEText("The price of " + str(id) + " is now " + str(new_product_price))
+                        message["From"] = "zcameronwebb@icloud.com"
+                        cur.execute("SELECT email FROM login WHERE username = ?", (session["username"],))
+                        recipient = cur.fetchone()
+                        if recipient is not None:
+                            message["To"] = recipient[0]
+                        else:
+                            print("No recipient found")
+                        message["Subject"] = "Price Update"
 
-                con.commit()
+                        mail_server = smtplib.SMTP("smtp.mail.me.com", 587)
+                        mail_server.starttls()
+                        mail_server.login("zcameronwebb@icloud.com", "z.aCapril.30!")
+                        mail_server.send_message(message)
+                        mail_server.quit()
+                    
+                    print("LINK FOUND")
+                    cur.execute("""
+                    UPDATE favs
+                    SET product_price = ?, price_date = ?
+                    WHERE id = ?
+                    """, (new_product_price, today, id))
 
+                    con.commit()
+
+                else:
+                    print("No link found - error inserting into Status DB")
             else:
-                print("No link found - error inserting into Status DB")
-        else:
-            print("not even a match")
-
-
-
-
-           
+                print("not even a match")
             
-                
-            
-    con.commit()  # Commit the transaction
-    con.close()
 
 # Call the function
 match()
