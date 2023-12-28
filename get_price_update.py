@@ -108,7 +108,7 @@ def match():
                     else:
                         print("No product found with id", id)
 
-                    if new_product_price < product_price or new_product_price > product_price:
+                    if int(new_product_price) < int(product_price) or int(new_product_price) > int(product_price):
                         message = MIMEText("The price of " + str(product_name) + " is now " + str(new_product_price))
                         message["From"] = "zcameronwebb@icloud.com"
                         cur.execute("SELECT email FROM login WHERE username = ?", (username,))
