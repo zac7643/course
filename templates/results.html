@@ -93,7 +93,25 @@
         transform: translate(0, 0);
       }
     }
-    
+    /* Styling the home button */
+    .home-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 20px 0;
+      background-color: #FF9900;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
+      text-decoration: none;
+      text-align: center;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .home-btn:hover {
+      background-color: #e68a00;
+    }
+
     </style>
     
 
@@ -103,6 +121,9 @@
   <body> <!-- Opening tag for the body section of the HTML document. -->
     <h1 class="title">Amazon <span>Price Tracker</span></h1> <!-- Title of the page with a nested span element for styling. -->
     <h1 style="color:#FF9900;"><b>RESULTS</b></h1> <!-- Another title for the page, styled with inline CSS to change the color. -->
+    <a href="{{ url_for('home') }}" class="home-btn">Home</a> 
+    
+  
   
   <table id="customers"> <!-- Opening tag for a table with the ID 'customers'. -->
     <tr> <!-- Opening tag for a table row. -->
