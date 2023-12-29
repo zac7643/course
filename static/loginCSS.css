@@ -7,12 +7,12 @@ body {
   margin-top: 50px;
   margin-bottom: 30px;
   font-size: 36px;
-  color: #fff; /* White color for "Amazon Price" */
+  color: #FF9900; /* White color for "Amazon Price" */
   font-family: "Officina Sans Bold", sans-serif; /* Officina Sans Bold font */
 }
 
 .title span {
-  color: #FF9900;
+  color: #FFF;
 }
 
 .login-container {
