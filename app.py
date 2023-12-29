@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request, session, redirect, url_for, jsonify
+from werkzeug.security import generate_password_hash, check_password_hash
 import os
 import sqlite3 as sql
 import resul
 import asearch
-#import get_price_update
 from datetime import datetime
 
 app = Flask(__name__)
@@ -12,7 +12,7 @@ app.config["SECRET_KEY"] = os.urandom(16)
 conn = sql.connect('database.db')
 print("Opened database successfully")
 
-conn.execute('CREATE TABLE IF NOT EXISTS login (username VARCHAR(20) NOT NULL PRIMARY KEY,email VARCHAR(20) NOT NULL, password VARCHAR(20) NOT NULL)')
+conn.execute('CREATE TABLE IF NOT EXISTS login (username VARCHAR(20) NOT NULL PRIMARY KEY,email VARCHAR(20) NOT NULL, password VARCHAR(100) NOT NULL)')
 print("Login table created successfully")
 
 cur = conn.cursor()  # Create a cursor object
@@ -88,12 +88,12 @@ def loginverify():
     cur.execute("""
                 SELECT *
                 FROM login
-                WHERE (username=? OR email=?) AND password=? """,
-                (request.form["user_input"],request.form["user_input"], request.form["password"]))
+                WHERE username=? OR email=?""",
+                (request.form["user_input"],request.form["user_input"]))
 
-    rows = cur.fetchall()
-    if len(rows) == 1:
-        session["username"] = rows[0][0]
+    row = cur.fetchone()
+    if row and check_password_hash(row[2], request.form["password"]):
+        session["username"] = row[0]
         return redirect("/home")
     else:
         return "login not recognised"
@@ -105,16 +105,16 @@ def login_insert():
     cur.execute("""
                 SELECT *
                 FROM login
-                WHERE username=? AND email=? AND password=? """,
-                (request.form["username"],request.form["email"], request.form["password"]))
+                WHERE username=? AND email=?""",
+                (request.form["username"],request.form["email"]))
     
-
-    rows = cur.fetchall()
-    if len(rows) == 0:
+    row = cur.fetchone()
+    if not row:
+        hashed_password = generate_password_hash(request.form["password"], method='sha256')
         cur.execute("""
-                INSERT INTO login (username,email,password)
-                VALUES (?,?,?)""",
-                (request.form["username"],request.form["email"],request.form["password"]))
+                    INSERT INTO login (username,email,password)
+                    VALUES (?,?,?)""",
+                    (request.form["username"],request.form["email"], hashed_password))
         con.commit()        
         return redirect("/")
     else:
