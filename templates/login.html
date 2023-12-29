@@ -10,10 +10,10 @@
   <body> <!-- Contains the content of an HTML page -->
     <h1 class="title">Amazon <span>Price Tracker</span></h1> <!-- Heading of the page with span tag to style a part of the text -->
     <h2 class="title">Login</h2> <!-- Sub-heading of the page -->
+    <div class="login-container"> <!-- A container for the login form -->
     {% if error %}
     <p class="error">{{ error }}</p>
     {% endif %}
-    <div class="login-container"> <!-- A container for the login form -->
       <form action=/loginverify method=post> <!-- Form element where the action attribute specifies where to send the form-data when a form is submitted -->
         <label for="user_input">Username or Email:</label> <!-- Label for the input field -->
         <input type="text" id="user_input" name="user_input"> <!-- Text input field for either username or email -->      
