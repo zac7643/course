@@ -29,8 +29,8 @@ def main():
                                  name='Price History', line=dict(color='#FF9900')))
         fig.update_layout(title='Price History', xaxis_title='Date', yaxis_title='Price', autosize=True, 
                           template='plotly_dark', title_x=0.5, font=dict(size=18))
-        fig.update_xaxes(title_font=dict(size=20))  # Increase x-axis label size
-        fig.update_yaxes(title_font=dict(size=20))  # Increase y-axis label size
+        fig.update_xaxes(title_font=dict(size=50))  # Increase x-axis label size
+        fig.update_yaxes(title_font=dict(size=50))  # Increase y-axis label size
         st.plotly_chart(fig, use_container_width=True)
     except Exception as e:
         st.write(f"Error creating chart: {e}")
