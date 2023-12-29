@@ -4,9 +4,11 @@
     <link rel="stylesheet" type="text/css" href="static/resultsCSS.css">
 </head>
 <body>
-    <h1 class="title">Amazon <span>Price Tracker</span></h1>
-    <h1 style="color:#FF9900;"><b>RESULTS</b></h1>
-    <a href="{{ url_for('home') }}" class="home-btn">Home</a>
+    <div class="header">
+        <h1 class="title">Amazon <span>Price Tracker</span></h1>
+        <h1 style="color:#FF9900;"><b>RESULTS</b></h1>
+        <a href="{{ url_for('home') }}" class="home-btn">Home</a>
+    </div>
 
     <table id="customers">
         <tr>
