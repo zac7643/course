@@ -69,7 +69,12 @@ h2 {
   margin-bottom: 20px;
   padding: 5px 20px !important;
   display: inline-block;
-  text-align: right;
+  text-align: right !important;
+}
+
+.user-info h3, .logout-button {
+  display: inline-block;
+  margin-left: 20px !important;
 }
 
 .user-info h3 {
