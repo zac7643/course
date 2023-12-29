@@ -94,8 +94,6 @@ def match():
 
             # Compare the product IDs
             if product_id_final_link == product_id_product_link:
-                # Compare the product IDs
-                if product_id_final_link.group(2) == product_id_product_link.group(2):
                     today = datetime.now().strftime('%Y-%m-%d-%H:%M')
                     cur.execute("""INSERT INTO stats (fav_id, product_price_stats, price_date_stats) VALUES (?, ?, ?)""", (id, new_product_price, today))
 
