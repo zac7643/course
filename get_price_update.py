@@ -134,10 +134,8 @@ def match():
 
                     con.commit()
 
-                else:
-                    print("No link found - error inserting into Status DB")
-            else:
-                print("not even a match")
+               
+            
             
 
 # Call the function
