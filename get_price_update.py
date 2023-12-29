@@ -85,15 +85,11 @@ def match():
             product_id_query_final_link = re.search(r'/(dp|gp)/(\w+)', url_final_link)
             product_id_query_product_link = re.search(r'/(dp|gp)/(\w+)', url_product_link)
 
-            # If product ID is not found in the query, use the one from the path
-            if product_id_query_final_link is None:
-                product_id_final_link = product_id_final_link
-            else:
+            # If product ID is found in the query, use it. Otherwise, use the one from the path
+            if product_id_query_final_link is not None:
                 product_id_final_link = product_id_query_final_link.group(2)
 
-            if product_id_query_product_link is None:
-                product_id_product_link = product_id_product_link
-            else:
+            if product_id_query_product_link is not None:
                 product_id_product_link = product_id_query_product_link.group(2)
 
             # Compare the product IDs
