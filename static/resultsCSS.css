@@ -1,97 +1,56 @@
-h1 {
-    text-align: center;
-    margin: 0;
-    font-size: 36px;
-    color: #fff;
-    font-family: "Officina Sans Bold", sans-serif;
-}
-
 body {
     background-color: #232f3e;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-#customers {
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
+.container {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-#customers td, #customers th {
-    border: 0.5px solid #ddd;
-    padding: 8px;
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
 }
 
-#customers tr:nth-child(even){background-color: #232f3e;}
-
-#customers tr:hover {background-color: #232f50;}
-
-#customers th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #FF9900;
-    color: white;
+.table {
+    margin-top: 2rem;
 }
 
-td a {
-    display: block;
+.table th {
+    color: #FF9900;
+}
+
+.table td a {
     color: #fff;
     text-decoration: none;
-}
-
-.like-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.like-btn:active{
-    transform: scale(0.9, 0.9);
-}
-
-.like-btn.active{
-    animation: pop 0.6s 1;
-}
-
-.like-btn path {
-    fill: #767676;
-}
-
-.like-btn.active path{
-    fill: #ec3e3e;
-}
-
-.clone{
-    position: absolute;
-    animation: moveOutwards 0.9s 1;
-    opacity: 0;
-}
-
-@keyframes moveOutwards{
-    from {
-        opacity: 1;
-        transform: translate(0, 0);
-    }
-    to{
-        opacity: 0;
-        transform: translate(0px, -20px);
-    }
 }
 
 .home-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 20px 0;
-    background-color: #FF9900;
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 1.5rem;
     color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
-    text-decoration: none;
-    text-align: center;
-    border-radius: 5px;
+    background-color: #FF9900;
     transition: background-color 0.3s ease;
 }
 
 .home-btn:hover {
     background-color: #e68a00;
+}
+
+.btn-light {
+    color: #767676;
+    transition: color 0.3s ease;
+}
+
+.btn-light:hover {
+    color: #ec3e3e;
+}
+
+.img-fluid {
+    max-width: 225px;
 }
