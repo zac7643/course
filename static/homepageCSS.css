@@ -64,6 +64,7 @@ h2 {
 }
 
 .user-info {
+  float: right;
   display: flex;
   justify-content: flex-end;
   margin-bottom: 20px;
@@ -74,7 +75,7 @@ h2 {
 
 .user-info h3, .logout-button {
   display: inline-block;
-  margin-left: 20px !important;
+  margin-left: 10px !important;
 }
 
 .user-info h3 {
