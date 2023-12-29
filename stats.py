@@ -8,7 +8,7 @@ import numpy as np
 st.set_page_config(layout="wide")
 
 def main():
-    st.title('Price History', color='#FF9900')
+    st.markdown("<h1 style='text-align: center; color: #FF9900;'>Price History</h1>", unsafe_allow_html=True)
 
     response = requests.get('http://141.147.64.158/getstatschart/')
     content = response.text.strip()
