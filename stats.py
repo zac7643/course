@@ -35,7 +35,7 @@ def main():
     try:
         fig = go.Figure()
         fig.add_trace(go.Scatter(x=chart_data['price_date_stats'], y=chart_data['product_price_stats'], mode='lines+markers', 
-                                 name='', line=dict(color='#FF9900')))
+                                 name='Price History', line=dict(color='#FF9900')))
         
         # Add a shaded rectangle to represent the interquartile range
         fig.add_shape(
@@ -62,7 +62,7 @@ def main():
                                  y=[lowest_price], mode='markers', 
                                  marker=dict(color='Green', size=10), name='Lowest Price'))
         
-        fig.update_layout(title='Price History', xaxis_title='Date', yaxis_title='Price', autosize=True, 
+        fig.update_layout(title='', xaxis_title='Date', yaxis_title='Price', autosize=True, 
                           template='plotly_dark', title_x=0.5, 
                           font=dict(size=20),  # Increase size of title and axes labels
                           xaxis=dict(title_font=dict(size=20)),  # Increase x-axis title size
