@@ -29,26 +29,31 @@ def main():
     lowest_price = chart_data['product_price_stats'].min()
     average_price = chart_data['product_price_stats'].mean()
 
+    # Calculate the standard deviation, which is a measure of how spread out the prices are
+    std_dev = chart_data['product_price_stats'].std()
+
     try:
         fig = go.Figure()
+
+        # Add the price history line
         fig.add_trace(go.Scatter(x=chart_data['price_date_stats'], y=chart_data['product_price_stats'], mode='lines+markers', 
                                  name='Price History', line=dict(color='#FF9900')))
-        
-        # Add a box plot for the average price
-        fig.add_trace(go.Box(y=chart_data['product_price_stats'], name='Average Price',
-                             boxpoints=False,  # no data points displayed
-                             marker_color='RoyalBlue'))
-        
-        # Add a red dot for the highest price
-        fig.add_trace(go.Scatter(x=[chart_data['price_date_stats'].iloc[np.argmax(chart_data['product_price_stats'])]], 
-                                 y=[highest_price], mode='markers', 
-                                 marker=dict(color='Red', size=10), name='Highest Price'))
-        
-        # Add a green dot for the lowest price
-        fig.add_trace(go.Scatter(x=[chart_data['price_date_stats'].iloc[np.argmin(chart_data['product_price_stats'])]], 
-                                 y=[lowest_price], mode='markers', 
-                                 marker=dict(color='Green', size=10), name='Lowest Price'))
-        
+
+        # Add a line for the average price
+        fig.add_trace(go.Scatter(x=chart_data['price_date_stats'], y=[average_price] * len(chart_data),
+                                 mode='lines', name='Average Price', line=dict(color='RoyalBlue')))
+
+        # Add a shaded area that represents the most common prices (within one standard deviation of the average)
+        fig.add_trace(go.Scatter(
+            x=chart_data['price_date_stats'].tolist() + chart_data['price_date_stats'].tolist()[::-1],  # x, then x reversed
+            y=(chart_data['product_price_stats'] + std_dev).tolist() + (chart_data['product_price_stats'] - std_dev).tolist()[::-1],  # upper, then lower reversed
+            fill='toself',
+            fillcolor='rgba(0,0,255,0.2)',  # semi-transparent fill
+            line=dict(color='rgba(255,255,255,0)'),
+            hoverinfo="skip",
+            showlegend=False
+        ))
+
         fig.update_layout(title='Price History', xaxis_title='Date', yaxis_title='Price', autosize=True, 
                           template='plotly_dark', title_x=0.5, 
                           font=dict(size=20),  # Increase size of title and axes labels
