@@ -48,6 +48,7 @@ h2 {
   border-radius: 5px 0 0 5px;
   border: none;
   outline: none;
+  font-weight: bold;
 }
 
 .search-bar button {
@@ -56,6 +57,7 @@ h2 {
   border-radius: 0 5px 5px 0;
   background-color: #FF9900;
   color: #fff;
+  font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
