@@ -35,7 +35,7 @@ def main():
     try:
         fig = go.Figure()
         fig.add_trace(go.Scatter(x=chart_data['price_date_stats'], y=chart_data['product_price_stats'], mode='lines+markers', 
-                                 name='Price History', line=dict(color='#FF9900')))
+                                 name='', line=dict(color='#FF9900')))
         
         # Add a shaded rectangle to represent the interquartile range
         fig.add_shape(
