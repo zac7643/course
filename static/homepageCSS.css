@@ -3,25 +3,17 @@ body {
   color: #fff;
   margin: 0;
   font-family: 'Arial', sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  max-width: 1200px; /* adjust this to your needs */
-  padding: 0 20px; /* adjust this to your needs */
+  width: 80%;
+  margin: 0 auto;
 }
 
 h1 {
   text-align: center;
   color: #FF9900;
   margin-top: 20px;
-  margin: 0;
 }
 
 h2 {
