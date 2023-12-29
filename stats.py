@@ -1,9 +1,8 @@
 import streamlit as st
-import pip._vendor.requests as requests
+import requests
 import pandas as pd
-import matplotlib.pyplot as style
-import matplotlib.pyplot as plt
 import numpy as np
+import plotly.graph_objects as go
 
 
 
