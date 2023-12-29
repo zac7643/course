@@ -4,57 +4,54 @@
     <link rel="stylesheet" type="text/css" href="resultsCSS.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="title">Amazon <span>Price Tracker</span></h1>
-        <h1 class="results">RESULTS</h1>
-        <a href="{{ url_for('home') }}" class="home-btn">Home</a>
+    <h1>Amazon Price Tracker</h1>
+    <a href="{{ url_for('home') }}" class="home-btn">Home</a>
 
-        <table class="table">
-            <thead>
+    <table id="customers">
+        <thead>
+            <tr>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Favourite</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dict_item in o %}
                 <tr>
-                    <th>Price</th>
-                    <th>Image</th>
-                    <th>Name</th>
-                    <th>Favourite</th>
+                    {% for key, value in dict_item.items() %}
+                        {% if key == "link" %}
+                            {% for k, v in value.items() %}
+                                {% if k == "href" %}
+                                    {% set link = v %}
+                                    {% for key, value in dict_item.items() %}
+                                        {% if key == "name" %}
+                                            <td><a href="{{link}}">{{value}}</a></td>
+                                            <td>
+                                                <form action="{{ url_for('addfav') }}" method="POST">
+                                                    <button type="submit" class="like-btn">
+                                                        <i class="fas fa-heart"></i>
+                                                        <input type="hidden" id="name" name="name" value='{{dict_item.name}}' />
+                                                        <input type="hidden" id="price" name="price" value='{{dict_item.price}}' />
+                                                        <input type="hidden" id="image" name="image" value='{{dict_item.image}}' />
+                                                        <input type="hidden" id="link" name="link" value='{{link}}' />
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        {% elif key == "price" %}
+                                            <td>£{{value}}</td>
+                                        {% elif key == "image" %}
+                                            <td><a href="{{link}}"><img src="{{value}}"></a></td>
+                                        {% endif %}
+                                    {% endfor %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
                 </tr>
-            </thead>
-            <tbody>
-                {% for dict_item in o %}
-                    <tr>
-                        {% for key, value in dict_item.items() %}
-                            {% if key == "link" %}
-                                {% for k, v in value.items() %}
-                                    {% if k == "href" %}
-                                        {% set link = v %}
-                                        {% for key, value in dict_item.items() %}
-                                            {% if key == "name" %}
-                                                <td><a href="{{link}}" class="product-link">{{value}}</a></td>
-                                                <td>
-                                                    <form action="{{ url_for('addfav') }}" method="POST">
-                                                        <button type="submit" class="fav-btn">
-                                                            <i class="fas fa-heart"></i>
-                                                            <input type="hidden" id="name" name="name" value='{{dict_item.name}}' />
-                                                            <input type="hidden" id="price" name="price" value='{{dict_item.price}}' />
-                                                            <input type="hidden" id="image" name="image" value='{{dict_item.image}}' />
-                                                            <input type="hidden" id="link" name="link" value='{{link}}' />
-                                                        </button>
-                                                    </form>
-                                                </td>
-                                            {% elif key == "price" %}
-                                                <td class="price">£{{value}}</td>
-                                            {% elif key == "image" %}
-                                                <td><a href="{{link}}"><img src="{{value}}" class="product-img"></a></td>
-                                            {% endif %}
-                                        {% endfor %}
-                                    {% endif %}
-                                {% endfor %}
-                            {% endif %}
-                        {% endfor %}
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
+            {% endfor %}
+        </tbody>
+    </table>
 
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
