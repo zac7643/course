@@ -2,33 +2,33 @@ body {
   background-color: #232f3e;
   font-family: Arial, Helvetica, sans-serif;
   color: #fff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1.title {
-  text-align: center;
-  margin: 0;
-  font-size: 36px;
-  color: #fff;
-  font-family: "Officina Sans Bold", sans-serif;
+  font-size: 48px;
+  color: #FF9900;
+  margin-top: 50px;
 }
 
 h1 {
-  text-align: center;
   color: #FF9900;
-  font-size: 24px;
-  margin-bottom: 20px;
+  font-size: 32px;
+  margin-top: 20px;
 }
 
 .home-btn {
-  display: block;
-  width: 200px;
-  margin: 20px auto;
+  display: inline-block;
   padding: 10px 20px;
+  margin: 20px 0;
   background-color: #FF9900;
   color: #fff;
-  font-size: 20px;
+  font-size: 16px;
   text-decoration: none;
-  text-align: center;
   border-radius: 5px;
   transition: background-color 0.3s ease;
 }
@@ -38,8 +38,8 @@ h1 {
 }
 
 #customers {
-  width: 80%;
-  margin: 0 auto;
+  width: 90%;
+  margin-top: 30px;
   border-collapse: collapse;
 }
 
@@ -47,20 +47,21 @@ h1 {
   border: 1px solid #ddd;
   padding: 15px;
   color: #fff;
+  text-align: center;
 }
 
 #customers tr:nth-child(even) {
-  background-color: #232f3e;
+  background-color: #2c394b;
 }
 
 #customers tr:hover {
-  background-color: #232f50;
+  background-color: #1f2836;
 }
 
 #customers th {
   background-color: #FF9900;
   color: white;
-  text-align: left;
+  text-align: center;
   padding: 20px;
 }
 
