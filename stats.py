@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 import pandas as pd
 import plotly.graph_objects as go
+import numpy as np
 
 # Set page to use wide layout
 st.set_page_config(layout="wide")
@@ -32,12 +33,25 @@ def main():
         fig = go.Figure()
         fig.add_trace(go.Scatter(x=chart_data['price_date_stats'], y=chart_data['product_price_stats'], mode='lines+markers', 
                                  name='Price History', line=dict(color='#FF9900')))
+        
+        # Add a horizontal line for the average price
+        fig.add_shape(type="line",
+                      x0=chart_data['price_date_stats'].min(), y0=average_price,
+                      x1=chart_data['price_date_stats'].max(), y1=average_price,
+                      line=dict(color="RoyalBlue",width=2))
+        
+        # Add a red dot for the highest price
+        fig.add_trace(go.Scatter(x=[chart_data['price_date_stats'].iloc[np.argmax(chart_data['product_price_stats'])]], 
+                                 y=[highest_price], mode='markers', 
+                                 marker=dict(color='Red', size=10), name='Highest Price'))
+        
+        # Add a green dot for the lowest price
+        fig.add_trace(go.Scatter(x=[chart_data['price_date_stats'].iloc[np.argmin(chart_data['product_price_stats'])]], 
+                                 y=[lowest_price], mode='markers', 
+                                 marker=dict(color='Green', size=10), name='Lowest Price'))
+        
         fig.update_layout(title='Price History', xaxis_title='Date', yaxis_title='Price', autosize=True, 
-                          template='plotly_dark', title_x=0.5, font=dict(size=18),
-                          annotations=[
-                              dict(xref='paper', yref='paper', x=0.95, y=1.05, showarrow=False,
-                                   text=f'Highest Price: {highest_price}<br>Lowest Price: {lowest_price}<br>Average Price: {average_price:.2f}')
-                          ])
+                          template='plotly_dark', title_x=0.5, font=dict(size=18))
         fig.update_xaxes(tickfont=dict(size=16))  # Increase x-axis tick label size
         fig.update_yaxes(tickfont=dict(size=16))  # Increase y-axis tick label size
         st.plotly_chart(fig, use_container_width=True)
