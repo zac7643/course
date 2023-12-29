@@ -34,11 +34,10 @@ def main():
         fig.add_trace(go.Scatter(x=chart_data['price_date_stats'], y=chart_data['product_price_stats'], mode='lines+markers', 
                                  name='Price History', line=dict(color='#FF9900')))
         
-        # Add a horizontal line for the average price
-        fig.add_shape(type="line",
-                      x0=chart_data['price_date_stats'].min(), y0=average_price,
-                      x1=chart_data['price_date_stats'].max(), y1=average_price,
-                      line=dict(color="RoyalBlue",width=2))
+        # Add a box plot for the average price
+        fig.add_trace(go.Box(y=chart_data['product_price_stats'], name='Average Price',
+                             boxpoints=False,  # no data points displayed
+                             marker_color='RoyalBlue'))
         
         # Add a red dot for the highest price
         fig.add_trace(go.Scatter(x=[chart_data['price_date_stats'].iloc[np.argmax(chart_data['product_price_stats'])]], 
