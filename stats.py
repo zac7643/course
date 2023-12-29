@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 import pandas as pd
-import plotly.express as px
+import plotly.graph_objects as go
 
 def main():
     st.title('Price History')
@@ -21,17 +21,11 @@ def main():
         return
 
     try:
-        fig = px.line(chart_data, x='price_date_stats', y='product_price_stats', 
-                      labels={'price_date_stats':'Date', 'product_price_stats':'Price'}, 
-                      title='Price History')
-        fig.update_layout(
-            autosize=False,
-            width=500,
-            height=500,
-            plot_bgcolor='rgb(230, 230,230)',
-            paper_bgcolor='rgb(230, 230,230)',
-        )
-        st.plotly_chart(fig)
+        fig = go.Figure()
+        fig.add_trace(go.Scatter(x=chart_data['price_date_stats'], y=chart_data['product_price_stats'], mode='lines+markers', name='Price History'))
+        fig.update_layout(title='Price History', xaxis_title='Date', yaxis_title='Price', autosize=True, 
+                          template='plotly_dark', title_x=0.5, font=dict(size=18))
+        st.plotly_chart(fig, use_container_width=True)
     except Exception as e:
         st.write(f"Error creating chart: {e}")
 
