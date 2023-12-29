@@ -1,69 +1,53 @@
-body {
-    background-color: #232f3e;
-    color: #fff;
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .container.custom-container {
-    width: 80%;
-    margin: 0 auto;
-  }
-  
-  .title.custom-title {
-    text-align: center;
-    color: #FF9900;
-    margin-top: 20px;
-  }
-  
-  .text-warning.custom-text-warning {
-    color: #FF9900;
-  }
-  
-  .btn.btn-primary.btn-lg.btn-block.custom-home-btn {
-    background-color: #FF9900;
-    color: #fff;
-    padding: 10px 20px;
-    margin: 20px 0;
-    text-decoration: none;
-  }
-  
-  .table.table-dark.table-striped.custom-table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-  }
-  
-  .table.table-dark.table-striped.custom-table th,
-  .table.table-dark.table-striped.custom-table td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #fff;
-  }
-  
-  .table.table-dark.table-striped.custom-table a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .table.table-dark.table-striped.custom-table img {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .btn.btn-light.custom-btn-light {
-    color: #fff;
-    background-color: #FF9900;
-  }
-  
-  .custom-link {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  .custom-img {
-    width: 100px;
-    height: 100px;
-  }
-  
+body{
+    background-color: #00008B; /* Dark blue */
+    color: #fff; /* White */
+}
+
+.custom-title {
+    color: #FF9900; /* Amazon orange */
+}
+
+.custom-container {
+    background-color: #1a1a2e; /* Slightly lighter dark blue for contrast */
+    border-radius: 15px; /* Rounded corners */
+    padding: 20px; /* Some padding */
+}
+
+.custom-table {
+    color: #fff; /* White text for the table */
+}
+
+.custom-text-warning {
+    color: #FF9900 !important; /* Amazon orange */
+}
+
+.custom-home-btn {
+    background-color: #FF9900; /* Amazon orange */
+    color: #000; /* Black text */
+}
+
+.custom-home-btn:hover {
+    background-color: #cc7a00; /* Darker orange on hover */
+}
+
+.custom-link, .custom-text-light {
+    color: #FF9900; /* Amazon orange */
+}
+
+.custom-link:hover, .custom-text-light:hover {
+    color: #cc7a00; /* Darker orange on hover */
+}
+
+.custom-btn-light {
+    border-color: #FF9900; /* Amazon orange */
+    color: #FF9900; /* Amazon orange */
+}
+
+.custom-btn-light:hover {
+    background-color: #FF9900; /* Amazon orange */
+    color: #000; /* Black text */
+}
+
+.custom-img {
+    border-radius: 15px; /* Rounded corners for the images */
+}
