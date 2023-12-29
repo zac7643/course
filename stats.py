@@ -1,12 +1,3 @@
-import streamlit as st
-import requests
-import pandas as pd
-import plotly.graph_objects as go
-import numpy as np
-
-# Set page to use wide layout
-st.set_page_config(layout="wide")
-
 def main():
     st.markdown("<h1 style='text-align: center; color: #FF9900;'>Price History</h1>", unsafe_allow_html=True)
 
@@ -29,15 +20,29 @@ def main():
     lowest_price = chart_data['product_price_stats'].min()
     average_price = chart_data['product_price_stats'].mean()
 
+    # Calculate the interquartile range
+    lower_quartile = np.percentile(chart_data['product_price_stats'], 25)
+    upper_quartile = np.percentile(chart_data['product_price_stats'], 75)
+
     try:
         fig = go.Figure()
         fig.add_trace(go.Scatter(x=chart_data['price_date_stats'], y=chart_data['product_price_stats'], mode='lines+markers', 
                                  name='Price History', line=dict(color='#FF9900')))
         
-        # Add a box plot for the average price
-        fig.add_trace(go.Box(y=chart_data['product_price_stats'], name='Average Price',
-                             boxpoints=False,  # no data points displayed
-                             marker_color='RoyalBlue'))
+        # Add a shaded rectangle to represent the interquartile range
+        fig.add_shape(
+            type="rect",
+            xref="x",
+            yref="y",
+            x0=chart_data['price_date_stats'].min(),
+            y0=lower_quartile,
+            x1=chart_data['price_date_stats'].max(),
+            y1=upper_quartile,
+            fillcolor="RoyalBlue",
+            opacity=0.5,
+            layer="below",
+            line_width=0,
+        )
         
         # Add a red dot for the highest price
         fig.add_trace(go.Scatter(x=[chart_data['price_date_stats'].iloc[np.argmax(chart_data['product_price_stats'])]], 
