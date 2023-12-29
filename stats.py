@@ -36,6 +36,15 @@ def main():
         st.plotly_chart(fig, use_container_width=True)
     except Exception as e:
         st.write(f"Error creating chart: {e}")
+        
+    # Calculate and display highest price, lowest price, and average price
+    highest_price = chart_data['product_price_stats'].max()
+    lowest_price = chart_data['product_price_stats'].min()
+    average_price = chart_data['product_price_stats'].mean()
+
+    st.write(f"Highest Price: {highest_price}")
+    st.write(f"Lowest Price: {lowest_price}")
+    st.write(f"Average Price: {average_price}")
 
 if __name__ == '__main__':
     main()
