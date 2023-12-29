@@ -54,16 +54,6 @@ def main():
             showlegend=False
         ))
 
-        # Add a red dot for the highest price
-        fig.add_trace(go.Scatter(x=[chart_data['price_date_stats'].iloc[np.argmax(chart_data['product_price_stats'])]], 
-                                 y=[highest_price], mode='markers', 
-                                 marker=dict(color='Red', size=10), name='Highest Price'))
-        
-        # Add a green dot for the lowest price
-        fig.add_trace(go.Scatter(x=[chart_data['price_date_stats'].iloc[np.argmin(chart_data['product_price_stats'])]], 
-                                 y=[lowest_price], mode='markers', 
-                                 marker=dict(color='Green', size=10), name='Lowest Price'))
-
         fig.update_layout(title='Price History', xaxis_title='Date', yaxis_title='Price', autosize=True, 
                           template='plotly_dark', title_x=0.5, 
                           font=dict(size=20),  # Increase size of title and axes labels
@@ -78,3 +68,10 @@ def main():
     # Display highest price, lowest price, and average price below the chart
     st.markdown(f"<h1 style='text-align: center; color: Red;'>Highest Price: <span style='color: Red;'>{highest_price}</span></h1>", unsafe_allow_html=True)
     st.markdown(f"<h1 style='text-align: center; color: Green;'>Lowest Price: <span style='color: Green;'>{lowest_price}</span></h1>", unsafe_allow_html=True)
+<<<<<<< HEAD
+=======
+    st.markdown(f"<h1 style='text-align: center; color: RoyalBlue;'>Average Price: <span style='color: RoyalBlue;'>{average_price:.2f}</span></h1>", unsafe_allow_html=True)
+
+if __name__ == '__main__':
+    main()
+>>>>>>> parent of 5cbcb4a (Update stats.py)
