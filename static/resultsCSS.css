@@ -6,53 +6,53 @@ body {
     padding: 0;
   }
   
-  .custom-container {
+  .container.custom-container {
     width: 80%;
     margin: 0 auto;
   }
   
-  .custom-title {
+  .title.custom-title {
     text-align: center;
     color: #FF9900;
     margin-top: 20px;
   }
   
-  .custom-text-warning {
+  .text-warning.custom-text-warning {
     color: #FF9900;
   }
   
-  .custom-home-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 20px 0;
+  .btn.btn-primary.btn-lg.btn-block.custom-home-btn {
     background-color: #FF9900;
     color: #fff;
+    padding: 10px 20px;
+    margin: 20px 0;
     text-decoration: none;
   }
   
-  .custom-table {
+  .table.table-dark.table-striped.custom-table {
     width: 100%;
     margin-top: 20px;
     border-collapse: collapse;
   }
   
-  .custom-table th, .custom-table td {
+  .table.table-dark.table-striped.custom-table th,
+  .table.table-dark.table-striped.custom-table td {
     padding: 15px;
     text-align: left;
     border-bottom: 1px solid #fff;
   }
   
-  .custom-table a {
+  .table.table-dark.table-striped.custom-table a {
     color: #fff;
     text-decoration: none;
   }
   
-  .custom-table img {
+  .table.table-dark.table-striped.custom-table img {
     width: 100px;
     height: 100px;
   }
   
-  .custom-form .custom-btn-light {
+  .btn.btn-light.custom-btn-light {
     color: #fff;
     background-color: #FF9900;
   }

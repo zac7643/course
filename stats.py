@@ -6,42 +6,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 def main():
     st.title('Streamlit Frontend for Flask API')
     response = requests.get('http://141.147.64.158/getstatschart/')
