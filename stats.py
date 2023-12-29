@@ -40,8 +40,8 @@ def main():
                                  name='Price History', line=dict(color='#FF9900')))
 
         # Add a line for the average price
-        #fig.add_trace(go.Scatter(x=chart_data['price_date_stats'], y=[average_price] * len(chart_data),
-                                 #mode='lines', name='Average Price', line=dict(color='RoyalBlue')))
+        fig.add_trace(go.Scatter(x=chart_data['price_date_stats'], y=[average_price] * len(chart_data),
+                                 mode='lines', name='Average Price', line=dict(color='RoyalBlue')))
 
         # Add a shaded area that represents the most common prices (within one standard deviation of the average)
         fig.add_trace(go.Scatter(
@@ -76,5 +76,5 @@ def main():
         st.write(f"Error creating chart: {e}")
 
     # Display highest price, lowest price, and average price below the chart
-    st.markdown(f"<h3 style='text-align: center; color: Red;'>Highest Price: <span style='color: Red;'>{highest_price}</span></h1>", unsafe_allow_html=True)
-    st.markdown(f"<h3 style='text-align: center; color: Green;'>Lowest Price: <span style='color: Green;'>{lowest_price}</span></h1>", unsafe_allow_html=True)
+    st.markdown(f"<h1 style='text-align: center; color: Red;'>Highest Price: <span style='color: Red;'>{highest_price}</span></h1>", unsafe_allow_html=True)
+    st.markdown(f"<h1 style='text-align: center; color: Green;'>Lowest Price: <span style='color: Green;'>{lowest_price}</span></h1>", unsafe_allow_html=True)
