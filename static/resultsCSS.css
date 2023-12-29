@@ -1,12 +1,22 @@
 body {
-  background-color: #00008B;
+  background-color: #232f3e;
   color: #fff;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
 }
 
 .title {
   text-align: center;
   color: #FF9900;
-  padding: 20px 0;
+}
+
+.title span {
+  color: #fff;
 }
 
 .results {
@@ -16,18 +26,31 @@ body {
 
 .home-btn {
   display: block;
-  width: 100%;
+  width: 100px;
   color: #000;
   background-color: #FF9900;
-  padding: 10px 0;
+  padding: 10px;
   text-align: center;
-  margin-bottom: 20px;
+  margin: 20px auto;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.home-btn:hover {
+  background-color: #1f262d;
+  color: #fff;
 }
 
 .table {
   width: 100%;
   color: #fff;
-  margin-bottom: 20px;
+  margin: 20px 0;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 10px;
+  border: 1px solid #fff;
 }
 
 .product-link, .product-link:hover {
@@ -39,14 +62,16 @@ body {
   background-color: transparent;
   color: #FF9900;
   cursor: pointer;
+  font-size: 20px;
 }
 
 .price {
-  color: #FF9900;
+  color: #0af416;
 }
 
 .product-img {
-  width: 100%;
-  max-width: 200px;
+  width: 100px;
   height: auto;
+  object-fit: contain;
+  border-radius: 5px;
 }
