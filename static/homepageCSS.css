@@ -8,7 +8,7 @@ body {
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between; 
+  justify-content: flex-start; 
 }
 
 .container {
@@ -17,8 +17,9 @@ body {
 }
 
 .title {
-  text-align: center;
-  width: 100%;
+  text-align: left;
+  width: auto; 
+  flex-grow: 1; 
 }
 
 h1 {
