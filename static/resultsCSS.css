@@ -1,4 +1,10 @@
-h1 {
+body {
+  background-color: #232f3e;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #fff;
+}
+
+h1.title {
   text-align: center;
   margin: 0;
   font-size: 36px;
@@ -6,85 +12,20 @@ h1 {
   font-family: "Officina Sans Bold", sans-serif;
 }
 
-body {
-  background-color: #232f3e;
-}
-
-#customers {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-#customers td, #customers th {
-  border: 0.5px solid #ddd;
-  padding: 8px;
-}
-
-#customers tr:nth-child(even){background-color: #232f3e;}
-
-#customers tr:hover {background-color: #232f50;}
-
-#customers th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #FF9900;
-  color: white;
-}
-
-td a {
-  display: block;
-  color: #fff;
-  text-decoration: none;
-}
-
-.like-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.like-btn:active{
-  transform: scale(0.9, 0.9);
-}
-
-.like-btn.active{
-  animation: pop 0.6s 1;
-}
-
-.like-btn path {
-  fill: #767676;
-}
-
-.like-btn.active path{
-  fill: #ec3e3e;
-}
-
-.clone{
-  position: absolute;
-  animation: moveOutwards 0.9s 1;
-  opacity: 0;
-}
-
-@keyframes moveOutwards{
-  from {
-      opacity: 1;
-      transform: translate(0, 0);
-  }
-  to{
-      opacity: 0;
-      transform: translate(0px, -20px);
-  }
+h1 {
+  text-align: center;
+  color: #FF9900;
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 .home-btn {
-  display: inline-block;
+  display: block;
+  width: 200px;
+  margin: 20px auto;
   padding: 10px 20px;
-  margin: 20px 0;
   background-color: #FF9900;
   color: #fff;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   text-decoration: none;
   text-align: center;
@@ -94,4 +35,69 @@ td a {
 
 .home-btn:hover {
   background-color: #e68a00;
+}
+
+#customers {
+  width: 80%;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 15px;
+  color: #fff;
+}
+
+#customers tr:nth-child(even) {
+  background-color: #232f3e;
+}
+
+#customers tr:hover {
+  background-color: #232f50;
+}
+
+#customers th {
+  background-color: #FF9900;
+  color: white;
+  text-align: left;
+  padding: 20px;
+}
+
+td a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.like-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.like-btn svg {
+  fill: #767676;
+  transition: fill 0.3s ease;
+}
+
+.like-btn:active {
+  transform: scale(0.9);
+}
+
+.like-btn.active svg {
+  fill: #ec3e3e;
+}
+
+@keyframes moveOutwards {
+  from {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate(0px, -20px);
+  }
 }
