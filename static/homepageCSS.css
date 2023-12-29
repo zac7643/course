@@ -124,7 +124,7 @@ h2 {
 }
 
 .logout-button {
-  padding: 5px 20px;
+  padding: 5px 20px !important;
   border: none;
   border-radius: 5px;
   background-color: #FF9900;
