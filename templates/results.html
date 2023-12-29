@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="resultsCSS.css">
 </head>
 <body>
-    <div class="container">
-        <h1 class="title text-center text-primary my-4">Amazon <span>Price Tracker</span></h1>
-        <h1 class="text-warning text-center"><b>RESULTS</b></h1>
-        <a href="{{ url_for('home') }}" class="btn btn-primary btn-lg btn-block home-btn">Home</a>
+    <div class="container custom-container">
+        <h1 class="title text-center text-primary my-4 custom-title">Amazon <span>Price Tracker</span></h1>
+        <h1 class="text-warning text-center custom-text-warning"><b>RESULTS</b></h1>
+        <a href="{{ url_for('home') }}" class="btn btn-primary btn-lg btn-block home-btn custom-home-btn">Home</a>
 
-        <table class="table table-dark table-striped my-4">
+        <table class="table table-dark table-striped my-4 custom-table">
             <thead>
                 <tr>
                     <th>Price</th>
@@ -29,10 +29,10 @@
                                         {% set link = v %}
                                         {% for key, value in dict_item.items() %}
                                             {% if key == "name" %}
-                                                <td><a href="{{link}}" class="text-light">{{value}}</a></td>
+                                                <td><a href="{{link}}" class="text-light custom-text-light">{{value}}</a></td>
                                                 <td>
-                                                    <form action="{{ url_for('addfav') }}" method="POST">
-                                                        <button type="submit" class="btn btn-light">
+                                                    <form action="{{ url_for('addfav') }}" method="POST" class="custom-form">
+                                                        <button type="submit" class="btn btn-light custom-btn-light">
                                                             <i class="fas fa-heart"></i>
                                                             <input type="hidden" id="name" name="name" value='{{dict_item.name}}' />
                                                             <input type="hidden" id="price" name="price" value='{{dict_item.price}}' />
@@ -42,9 +42,9 @@
                                                     </form>
                                                 </td>
                                             {% elif key == "price" %}
-                                                <td class="text-warning"><b>£{{value}}</b></td>
+                                                <td class="text-warning custom-text-warning"><b>£{{value}}</b></td>
                                             {% elif key == "image" %}
-                                                <td><a href="{{link}}"><img src="{{value}}" class="img-fluid"></a></td>
+                                                <td><a href="{{link}}" class="custom-link"><img src="{{value}}" class="img-fluid custom-img"></a></td>
                                             {% endif %}
                                         {% endfor %}
                                     {% endif %}
