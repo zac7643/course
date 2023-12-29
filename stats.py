@@ -51,12 +51,20 @@ def main():
                                  marker=dict(color='Green', size=10), name='Lowest Price'))
         
         fig.update_layout(title='Price History', xaxis_title='Date', yaxis_title='Price', autosize=True, 
-                          template='plotly_dark', title_x=0.5, font=dict(size=18))
-        fig.update_xaxes(tickfont=dict(size=16))  # Increase x-axis tick label size
-        fig.update_yaxes(tickfont=dict(size=16))  # Increase y-axis tick label size
+                          template='plotly_dark', title_x=0.5, 
+                          font=dict(size=20),  # Increase size of title and axes labels
+                          xaxis=dict(title_font=dict(size=20)),  # Increase x-axis title size
+                          yaxis=dict(title_font=dict(size=20)))  # Increase y-axis title size
+        fig.update_xaxes(tickfont=dict(size=18))  # Increase x-axis tick label size
+        fig.update_yaxes(tickfont=dict(size=18))  # Increase y-axis tick label size
         st.plotly_chart(fig, use_container_width=True)
     except Exception as e:
         st.write(f"Error creating chart: {e}")
+
+    # Display highest price, lowest price, and average price below the chart
+    st.write(f"Highest Price: {highest_price}")
+    st.write(f"Lowest Price: {lowest_price}")
+    st.write(f"Average Price: {average_price:.2f}")
 
 if __name__ == '__main__':
     main()
