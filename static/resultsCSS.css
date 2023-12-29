@@ -1,44 +1,69 @@
-body .custom-container {
-    background-color: var(--primary-color) !important;
-    color: var(--light-color) !important;
-    font-family: 'Arial', sans-serif !important;
-    margin: 0 !important;
-    padding: 0 !important;
+body {
+    background-color: #232f3e;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
   }
   
-  body .custom-container .custom-title {
-    text-align: center !important;
-    color: var(--secondary-color) !important;
-    margin-top: 20px !important;
+  .custom-container {
+    width: 80%;
+    margin: 0 auto;
   }
   
-  body .custom-container .custom-table {
-    width: 100% !important;
-    margin-top: 20px !important;
-    border-collapse: collapse !important;
+  .custom-title {
+    text-align: center;
+    color: #FF9900;
+    margin-top: 20px;
   }
   
-  body .custom-container .custom-table th, .custom-table td {
-    padding: 15px !important;
-    text-align: left !important;
-    border-bottom: 1px solid var(--dark-color) !important;
+  .custom-text-warning {
+    color: #FF9900;
   }
   
-  body .custom-container .custom-table a {
-    color: var(--light-color) !important;
-    text-decoration: none !important;
+  .custom-home-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px 0;
+    background-color: #FF9900;
+    color: #fff;
+    text-decoration: none;
   }
   
-  body .custom-container .custom-table img {
-    width: 100px !important;
-    height: 100px !important;
+  .custom-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
   }
   
-  body .custom-container .custom-home-btn {
-    display: inline-block !important;
-    padding: 10px 20px !important;
-    margin: 20px 0 !important;
-    background-color: var(--secondary-color) !important;
-    color: var(--light-color) !important;
-    text-decoration: none !
+  .custom-table th, .custom-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #fff;
+  }
+  
+  .custom-table a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .custom-table img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .custom-form .custom-btn-light {
+    color: #fff;
+    background-color: #FF9900;
+  }
+  
+  .custom-link {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .custom-img {
+    width: 100px;
+    height: 100px;
+  }
   
