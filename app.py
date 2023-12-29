@@ -96,7 +96,7 @@ def loginverify():
         session["username"] = row[0]
         return redirect("/home")
     else:
-        return "login not recognised"
+        return render_template("login.html", error="Account not found")
 
 @app.route("/logininsert", methods=["POST"])
 def login_insert():
