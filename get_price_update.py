@@ -96,7 +96,6 @@ def match():
             if product_id_final_link == product_id_product_link:
                     today = datetime.now().strftime('%Y-%m-%d-%H:%M')
                     cur.execute("""INSERT INTO stats (fav_id, product_price_stats, price_date_stats) VALUES (?, ?, ?)""", (id, new_product_price, today))
-
                     # Fetch product_price from favs table
                     cur.execute("SELECT product_price, username, product_name FROM favs WHERE id = ?", (id,))
                     result = cur.fetchone()
@@ -107,7 +106,7 @@ def match():
                     else:
                         print("No product found with id", id)
 
-                    if int(new_product_price) < int(product_price) or int(new_product_price) > int(product_price):
+                    if float(new_product_price) < float(product_price) or float(new_product_price) > float(product_price):
                         message = MIMEText("The price of " + str(product_name) + " is now " + str(new_product_price))
                         message["From"] = "zcameronwebb@icloud.com"
                         cur.execute("SELECT email FROM login WHERE username = ?", (username,))
