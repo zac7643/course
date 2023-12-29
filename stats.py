@@ -3,6 +3,8 @@ import requests
 import pandas as pd
 import plotly.graph_objects as go
 
+st.set_page_config(layout="wide")
+
 def main():
     st.title('Price History')
 
