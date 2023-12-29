@@ -33,23 +33,34 @@ h2 {
 .search-bar input[type="text"] {
   flex-grow: 1;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 5px 0 0 5px;
   border: none;
+  outline: none;
 }
 
 .search-bar button {
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 0 5px 5px 0;
   background-color: #FF9900;
   color: #fff;
   cursor: pointer;
-  margin-left: 10px;
+  transition: background-color 0.3s ease;
 }
 
 .search-bar form {
   display: flex;
   width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.search-bar form:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.search-bar button:hover {
+  background-color: #1f262d;
 }
 
 .user-info {
