@@ -7,7 +7,7 @@ import numpy as np
 
 
 def main():
-    st.title('Streamlit Frontend for Flask API')
+    st.title('Price History')
     response = requests.get('http://141.147.64.158/getstatschart/')
     content = response.text  # Get the content of the response as a string
     content = content.strip()  # Now you can use the strip() method
