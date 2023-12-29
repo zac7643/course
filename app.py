@@ -118,7 +118,7 @@ def login_insert():
         con.commit()        
         return redirect("/")
     else:
-        return "username or password taken"
+        return render_template("signup.html", error="username or email already in use")
     
 
 

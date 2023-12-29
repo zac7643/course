@@ -164,3 +164,8 @@ h2 {
   color: #fff !important;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
+
+.error {
+  color: red;
+  font-weight: bold;
+}

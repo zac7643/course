@@ -13,7 +13,9 @@
     <h1 class="title">Amazon <span>Price Tracker</span></h1> <!-- This is a heading. -->
     <h2 class="title">Sign Up</h2> <!-- Another heading. -->
     <div class="login-container"> <!-- A division or section of the document. -->
-
+      {% if error %}
+      <p class="error">{{ error }}</p>
+      {% endif %}
       <form action=/logininsert method=post> <!-- This is a form, which allows user input. The input will be sent to the /logininsert endpoint using a POST request. -->
         <label for="username">Username:</label> <!-- This is a label for an input field. -->
         <input type="text" id="username" name="username" required> <!-- This is a text input field. -->
