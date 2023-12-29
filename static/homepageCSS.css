@@ -16,6 +16,11 @@ body {
   margin: 0 auto;
 }
 
+.title {
+  text-align: center;
+  width: 100%;
+}
+
 h1 {
   text-align: center;
   color: #FF9900;
