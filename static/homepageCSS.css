@@ -16,6 +16,7 @@ body {
   font-size: 36px; /* Sets the font size of the title */
   color: #fff; /* Sets the color of the title to white */
   font-family: "Officina Sans Bold", sans-serif; /* Sets the font of the title to "Officina Sans Bold", if not available, it falls back to any sans-serif font */
+  margin-top: 50px;
 }
 
 .title span {
