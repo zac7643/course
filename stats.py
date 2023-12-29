@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
 
-
+st.set_page_config(layout="wide")
 
 def main():
     st.markdown("<h1 style='text-align: center; color: #FF9900;'>Price History</h1>", unsafe_allow_html=True)
