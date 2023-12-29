@@ -10,21 +10,18 @@ st.set_page_config(layout="wide")
 def main():
     st.markdown("<h1 style='text-align: center; color: #FF9900;'>Price History</h1>", unsafe_allow_html=True)
 
-    try:
-        response = requests.get('http://141.147.64.158/getstatschart/')
-        data = response.json()
-    except Exception as e:
-        st.write(f"Error fetching data: {str(e)}")
-        return
+    response = requests.get('http://141.147.64.158/getstatschart/')
+    content = response.text.strip()
 
     try:
+        data = response.json()
         chart_data = pd.DataFrame(data)
         chart_data = chart_data[['product_price_stats', 'price_date_stats']]
         chart_data['product_price_stats'] = chart_data['product_price_stats'].astype(float)
         chart_data['price_date_stats'] = pd.to_datetime(chart_data['price_date_stats']).dt.date
         chart_data.sort_values('price_date_stats', inplace=True)
     except Exception as e:
-        st.write(f"Error processing data: {str(e)}")
+        st.write(f"Error: {str(e)}")
         return
 
     # Calculate highest price, lowest price, and average price
@@ -42,6 +39,10 @@ def main():
         fig.add_trace(go.Scatter(x=chart_data['price_date_stats'], y=chart_data['product_price_stats'], mode='lines+markers', 
                                  name='Price History', line=dict(color='#FF9900')))
 
+        # Add a line for the average price
+        #fig.add_trace(go.Scatter(x=chart_data['price_date_stats'], y=[average_price] * len(chart_data),
+                                 #mode='lines', name='Average Price', line=dict(color='RoyalBlue')))
+
         # Add a shaded area that represents the most common prices (within one standard deviation of the average)
         fig.add_trace(go.Scatter(
             x=chart_data['price_date_stats'].tolist() + chart_data['price_date_stats'].tolist()[::-1],  # x, then x reversed
@@ -57,7 +58,7 @@ def main():
         fig.add_trace(go.Scatter(x=[chart_data['price_date_stats'].iloc[np.argmax(chart_data['product_price_stats'])]], 
                                  y=[highest_price], mode='markers', 
                                  marker=dict(color='Red', size=10), name='Highest Price'))
-
+        
         # Add a green dot for the lowest price
         fig.add_trace(go.Scatter(x=[chart_data['price_date_stats'].iloc[np.argmin(chart_data['product_price_stats'])]], 
                                  y=[lowest_price], mode='markers', 
@@ -77,6 +78,3 @@ def main():
     # Display highest price, lowest price, and average price below the chart
     st.markdown(f"<h3 style='text-align: center; color: Red;'>Highest Price: <span style='color: Red;'>{highest_price}</span></h1>", unsafe_allow_html=True)
     st.markdown(f"<h3 style='text-align: center; color: Green;'>Lowest Price: <span style='color: Green;'>{lowest_price}</span></h1>", unsafe_allow_html=True)
-
-if __name__ == "__main__":
-    main()
