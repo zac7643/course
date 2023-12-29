@@ -51,7 +51,7 @@ def match():
             # Parse the URLs
             parsed_final_link = urlparse(final_link)
             parsed_product_link = urlparse(final_product_link)
-            print(parsed_product_link)
+            # print(parsed_product_link)
 
             """  # Remove 'qid' from the query parameters
             query_params1 = parse_qs(parsed_final_link.query)
@@ -82,15 +82,15 @@ def match():
             url_final_link = unquote(query_final_link.get('url', [''])[0])
             url_product_link = unquote(query_product_link.get('url', [''])[0])
 
-            print("Final link URL:", url_final_link)
-            print("Product link URL:", url_product_link)
+            # print("Final link URL:", url_final_link)
+            # print("Product link URL:", url_product_link)
 
             # Use the regular expression to search for the product ID in the 'url' parameter
             product_id_final_link = re.search(r'/(dp|gp)/(\w+)', url_final_link)
             product_id_product_link = re.search(r'/(dp|gp)/(\w+)', url_product_link)
 
-            print("Final link match:", product_id_final_link)
-            print("Product link match:", product_id_product_link)
+            # print("Final link match:", product_id_final_link)
+            # print("Product link match:", product_id_product_link)
 
             if product_id_final_link and product_id_product_link:
             # Compare the product IDs
