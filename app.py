@@ -110,7 +110,7 @@ def login_insert():
     
     row = cur.fetchone()
     if not row:
-        hashed_password = generate_password_hash(request.form["password"], method='sha256')
+        hashed_password = generate_password_hash(request.form["password"], method='pbkdf2:sha256')
         cur.execute("""
                     INSERT INTO login (username,email,password)
                     VALUES (?,?,?)""",
