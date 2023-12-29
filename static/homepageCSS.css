@@ -31,8 +31,6 @@ h2 {
   padding: 10px;
   border-radius: 5px;
   border: none;
-  box-sizing: border-box; 
-  width: 100%; 
 }
 
 .search-bar button {
