@@ -70,3 +70,110 @@ body {
 .search-bar button[type="submit"]:hover {
   background-color: #e67e00; /* Changes the background color of the submit button in the search bar to a different shade of orange when hovered over */
 }
+
+
+/* Setting the background color, text color, and font for the entire body of the webpage */
+body {
+    background-color: #232f3e;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+}
+/* Setting the width and auto margin for the container div */
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+/* Styling the h1 tag, which is the main heading of the webpage */
+h1 {
+    text-align: center;
+    color: #FF9900;
+    margin-top: 20px;
+}
+/* Styling the h2 tag, which is the sub-heading of the webpage */
+h2 {
+    margin: 20px 0;
+    color: #FF9900;
+}
+/* Styling the search bar */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+/* Styling the input field in the search bar */
+.search-bar input[type="text"] {
+    width: 60%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+}
+/* Styling the search button */
+.search-bar button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FF9900;
+    color: #fff;
+    cursor: pointer;
+    margin-left: 10px;
+}
+/* Styling the user information section */
+.user-info {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+/* Styling the user name display */
+.user-info h3 {
+    margin-right: 20px;
+}
+/* Styling the logout button */
+.user-info a {
+    color: #FF9900;
+    text-decoration: none;
+}
+/* Styling the product item display */
+.product-item {
+    display: flex;
+    align-items: center;
+    background-color: #1f262d;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+/* Styling the product image */
+.product-item img {
+    width: 100px;
+    height: 100px;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+/* Styling the product link */
+.product-item a {
+    color: #fff;
+    text-decoration: none;
+}
+/* Styling the product link on hover */
+.product-item a:hover {
+    color: #FF9900;
+}
+/* Styling the product price display */
+.product-item .price {
+    color: #0af416;
+    margin-top: 10px;
+}
+/* Styling the delete and stats buttons */
+.product-item .btn {
+    display: inline-block;
+    padding: 5px 10px;
+    margin-top: 10px;
+    background-color: #FF9900;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+/* Styling the delete and stats buttons on hover */
+.product-item .btn:hover {
+    background-color: #1f262d;
+}
