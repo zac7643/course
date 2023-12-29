@@ -201,37 +201,37 @@ def delete_fav(id):
     print("fav deleted")
     return redirect("/home")
 
-# """ @app.route("/addstat")
-# def addstat_form():
-#     return render_template("addstat.html") """
+""" @app.route("/addstat")
+def addstat_form():
+    return render_template("addstat.html") """
 
-# """ @app.route("/stats")
-# def stats_page():
-#     return render_template("stats.html") """
+""" @app.route("/stats")
+def stats_page():
+    return render_template("stats.html") """
 
-# """ @app.route("/addstats", methods=["POST"])
-# def addstats():
-#     fav_id = request.form.get("fav_id")
-#     p = request.form.get("product_price")
-#     d = datetime.now().strftime('%Y-%m-%d-%H:%M')
+""" @app.route("/addstats", methods=["POST"])
+def addstats():
+    fav_id = request.form.get("fav_id")
+    p = request.form.get("product_price")
+    d = datetime.now().strftime('%Y-%m-%d-%H:%M')
 
-#     con = sql.connect("database.db")
-#     cur = con.cursor()
-#     # Update the current price and date in the main table
-#     cur.execute("""
-#     # UPDATE favs
-#     # SET product_price = ?, price_date = ?
-#     # WHERE id = ?
-#     """, (p, d, fav_id))
+    con = sql.connect("database.db")
+    cur = con.cursor()
+    # Update the current price and date in the main table
+    cur.execute("""
+    # UPDATE favs
+    # SET product_price = ?, price_date = ?
+    # WHERE id = ?
+    """, (p, d, fav_id))
 
-#     # Insert the historical price and date into the stats table
-#     cur.execute("""
-#     # INSERT INTO stats (fav_id, product_price_stats, price_date_stats)
-#     # VALUES (?, ?, ?)
-#     """, (fav_id, p, d))
-#     con.commit()
-#     print("Stat added to db")
-#     return redirect("/home") """
+    # Insert the historical price and date into the stats table
+    cur.execute("""
+    # INSERT INTO stats (fav_id, product_price_stats, price_date_stats)
+    # VALUES (?, ?, ?)
+    """, (fav_id, p, d))
+    con.commit()
+    print("Stat added to db")
+    return redirect("/home") """
 
 
 @app.route('/getstats/<id>')
