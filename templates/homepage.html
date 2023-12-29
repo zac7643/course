@@ -169,6 +169,11 @@
           background-color: #293c53;
         }
 
+        .btn-link {
+          color: #fff;
+          text-decoration: none;
+        }
+
         .product-item {
           display: flex;
           justify-content: space-between;
@@ -202,9 +207,9 @@
         <!-- Header of the page -->
         <h1 class="title">Amazon <span>Price Tracker</span></h1>
         <!-- User information -->
-        <h3 style="text-align:right; color: white;">User: {{username}} <a href="/logout" style="color: white;">Log Out</a></h3>
+        <h3 style="text-align:right; color: white;">{{username}} <a href="/logout" class="btn btn-link">Log Out</a></h3>
         <!-- Link to add stat -->
-        <h3 style="text-align:right;"><a href="/addstat" style="color: white;">add stat</a></h3>
+        <!-- <h3 style="text-align:right;"><a href="/addstat" style="color: white;">add stat</a></h3> -->
 
     <!-- Search bar -->
     <div class="search-bar">
