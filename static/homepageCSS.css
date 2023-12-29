@@ -72,6 +72,7 @@ h2 {
 
 .user-info h3 {
   margin-right: 20px;
+  display: inline-block;
 }
 
 .user-info a {
@@ -126,6 +127,7 @@ h2 {
 
 .logout-button {
   padding: 5px 20px !important;
+  display: inline-block;
   border: none;
   border-radius: 5px;
   background-color: #FF9900;
