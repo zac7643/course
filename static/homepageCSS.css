@@ -5,6 +5,12 @@ body {
   font-family: 'Arial', sans-serif;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .container {
   width: 80%;
   margin: 0 auto;
