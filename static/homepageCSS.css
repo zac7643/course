@@ -68,9 +68,10 @@ h2 {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 20px;
-  padding: 5px 20px;
+  padding: 5px 20px !important;
+  display: inline-block;
   width: 100%;
-  box-sizing: border-box;
+  text-align: right !important;
 }
 
 .user-info h3, .logout-button {
