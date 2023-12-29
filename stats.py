@@ -1,3 +1,12 @@
+import streamlit as st
+import pip._vendor.requests as requests
+import pandas as pd
+import matplotlib.pyplot as style
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+
 def main():
     st.markdown("<h1 style='text-align: center; color: #FF9900;'>Price History</h1>", unsafe_allow_html=True)
 
