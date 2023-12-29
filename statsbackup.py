@@ -1,11 +1,16 @@
+
 import streamlit as st
-import requests
+import pip._vendor.requests as requests
 import pandas as pd
-import plotly.express as px
+import matplotlib.pyplot as style
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+import matplotlib.style as style
 
 def main():
     st.title('Price History')
-
     response = requests.get('http://141.147.64.158/getstatschart/')
     content = response.text.strip()
 
@@ -21,17 +26,15 @@ def main():
         return
 
     try:
-        fig = px.line(chart_data, x='price_date_stats', y='product_price_stats', 
-                      labels={'price_date_stats':'Date', 'product_price_stats':'Price'}, 
-                      title='Price History')
-        fig.update_layout(
-            autosize=False,
-            width=500,
-            height=500,
-            plot_bgcolor='rgb(230, 230,230)',
-            paper_bgcolor='rgb(230, 230,230)',
-        )
-        st.plotly_chart(fig)
+        style.use('ggplot')  # Use the 'ggplot' style
+        fig, ax = plt.subplots()
+        ax.plot(chart_data['price_date_stats'], chart_data['product_price_stats'], marker='o')
+        ax.set_xticks(chart_data['price_date_stats'])
+        ax.set_yticks(chart_data['product_price_stats'])
+        plt.title('Price History', fontsize=20)
+        plt.xlabel('Date', fontsize=14)
+        plt.ylabel('Price', fontsize=14)
+        st.pyplot(fig)
     except Exception as e:
         st.write(f"Error creating chart: {e}")
 
