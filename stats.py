@@ -63,10 +63,7 @@ def main():
     # Display highest price, lowest price, and average price below the chart
     st.markdown(f"<h1 style='text-align: center; color: Red;'>Highest Price: <span style='color: Red;'>{highest_price}</span></h1>", unsafe_allow_html=True)
     st.markdown(f"<h1 style='text-align: center; color: Green;'>Lowest Price: <span style='color: Green;'>{lowest_price}</span></h1>", unsafe_allow_html=True)
-<<<<<<< HEAD
-=======
     st.markdown(f"<h1 style='text-align: center; color: RoyalBlue;'>Average Price: <span style='color: RoyalBlue;'>{average_price:.2f}</span></h1>", unsafe_allow_html=True)
 
 if __name__ == '__main__':
     main()
->>>>>>> parent of 5cbcb4a (Update stats.py)
