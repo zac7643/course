@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <!-- Setting the title of the webpage -->
+    <title>Amazon Price Tracker</title>
+    <!-- Setting the character encoding for the webpage -->
+    <meta charset="UTF-8">
+    <!-- Setting the viewport for responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Linking Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Officina+Sans:700&display=swap" rel="stylesheet">
+    <!-- Linking the CSS file -->
+    <link rel="stylesheet" href="static/homepageCSS.css">
+    <!-- Inline CSS for styling -->
+    <style>
+          /* Styling the list of favorite products */
+          ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0 0 0 5%;
+            width: 95%;
+            max-width: 800px; /* Limits the maximum width of the list */
+          }
+
+          /* Styling the list items */
+          ul li {
+            background-color: #232f3e;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+          }
+
+          /* Styling the list items when hovered over */
+          ul li:hover {
+            background-color: #232f50;
+          }
+
+          /* Styling the product images */
+          ul li img {
+            border-radius: 5px;
+            margin-right: 10px;
+          }
+
+          /* Styling the product links */
+          ul li a {
+            color: #fff;
+            text-decoration: none;
+          }
+
+          /* Styling the product links when hovered over */
+          ul li a:hover {
+            color: #FF9900;
+          }
+
+          /* Styling the product prices */
+          ul li a.price {
+            color: #0af416;
+          }
+
+          /* Styling the delete and stats buttons */
+          .btn {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 5px 0;
+            background-color: #FF9900;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+          }
+
+          .btn:hover {
+            background-color: #e68a00;
+          }
+
+          /* Styling the "Your Favorites" heading */
+          h2 {
+            font-family: 'Arial', sans-serif; /* Sets the font of the heading */
+            font-weight: bold; /* Makes the heading bold */
+            margin: 0 0 0 5%;
+            width: 45%;
+            font-size: 24px; /* Sets the size of the heading */
+            color: #FF9900;
+          }
+
+
+        /* Styling the delete and stats buttons */
+        .btn {
+          display: inline-block;
+          padding: 5px 10px;
+          margin: 5px 0;
+          background-color: #FF9900;
+          color: #fff;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 14px;
+          text-decoration: none;
+          text-align: center;
+          border-radius: 5px;
+          transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+          background-color: #e68a00;
+        }
+
+        h1 {text-align: center; }
+        body {
+            background-color: #232f3e;
+        }
+        
+        td a {
+          display: block;
+          color: #fff;
+          text-decoration: none;
+        }
+        
+        /* Style for like button */
+        .like-btn {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .like-btn:active{
+          transform: scale(0.9, 0.9);
+        }
+        .like-btn.active{
+          animation: pop 0.6s 1;
+        }
+        .like-btn path {
+          fill: #767676;
+        }
+        .like-btn.active path{
+          fill: #ec3e3e;
+        }
+        
+        /* Animation for like button */
+        .clone{
+          position: absolute;
+          animation: moveOutwards 0.9s 1;
+          opacity: 0;
+        }
+        
+        @keyframes moveOutwards{
+          from {
+            opacity: 1;
+            transform: translate(0, 0);
+          }
+        }
+        /* Styling the delete and stats buttons */
+        .btn {
+          display: inline-block;
+          padding: 5px 10px;
+          margin: 5px 0;
+          background-color: #FF9900;
+          color: #fff;
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 14px;
+          text-decoration: none;
+          text-align: center;
+          border-radius: 5px;
+          transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+          background-color: #293c53;
+        }
+
+        .btn-link {
+          color: #fff;
+          text-decoration: none;
+          text-align:right;
+          margin-right: 20px;
+        }
+
+        .product-item {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .product-info {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+        }
+        .price-and-buttons {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .product-buttons {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          width: 100%;
+        }
+        .username {
+          margin-right: 20px;
+          text-align:right;
+        }
+
+
+        </style>
+    </head>
+
+    <body>
+        <!-- Header of the page -->
+        <h1 class="title">Amazon <span>Price Tracker</span></h1>
+        <!-- User information -->
+        
+          <h3 class="username" style="color: white;">{{username}}</h3>
+          <h3 href="/logout" class="btn btn-link">Log Out</h3>
+        
+      
+        <!-- Link to add stat -->
+        <!-- <h3 style="text-align:right;"><a href="/addstat" style="color: white;">add stat</a></h3> -->
+
+    <!-- Search bar -->
+    <div class="search-bar">
+    <form action=/search>
+        <input type="text" placeholder="Search..." name="search">
+        <button type="submit">Search</button>
+    </form>
+    </div>
+
+    
+    <ul>
+    <!-- Loop through rows to display each product -->
+    <!-- "Your Favorites" heading -->
+    <h2>Your Favorites</h2>
+
+    <!-- List of favorite products -->
+    <ul>
+      {% for row in rows %}
+        <li>
+          <div class="product-item">
+            <div class="product-image">
+              <img src="{{ row.product_image_url }}" width="100">
+            </div>
+            <div class="product-info">
+              <a href="{{ row.product_link }}">{{ row.product_name }}</a>
+              <div class="price-and-buttons">
+                <a class="price">£{{ row.product_price }} ({{ row.price_date }})</a>
+                <div class="product-buttons">
+                  <a href="{{ url_for('delete_fav', id=row.id) }}" class="btn">DELETE</a>
+                  <a href="{{ url_for('get_stats', id=row.id )}}" class="btn">STATS</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+
+    </ul>
+
+
+  
+    </ul>
+    </body>
+</html>
