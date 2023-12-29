@@ -1,84 +1,44 @@
-:root {
-    --primary-color: #232f3e;
-    --secondary-color: #FF9900;
-    --light-color: #fff;
-    --dark-color: #1f262d;
+body .custom-container {
+    background-color: var(--primary-color) !important;
+    color: var(--light-color) !important;
+    font-family: 'Arial', sans-serif !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
   
-  body {
-    background-color: var(--primary-color);
-    color: var(--light-color);
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
+  body .custom-container .custom-title {
+    text-align: center !important;
+    color: var(--secondary-color) !important;
+    margin-top: 20px !important;
   }
   
-  .container {
-    width: 80%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  body .custom-container .custom-table {
+    width: 100% !important;
+    margin-top: 20px !important;
+    border-collapse: collapse !important;
   }
   
-  .title {
-    text-align: center;
-    color: var(--secondary-color);
-    margin-top: 20px;
+  body .custom-container .custom-table th, .custom-table td {
+    padding: 15px !important;
+    text-align: left !important;
+    border-bottom: 1px solid var(--dark-color) !important;
   }
   
-  .table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
+  body .custom-container .custom-table a {
+    color: var(--light-color) !important;
+    text-decoration: none !important;
   }
   
-  .table th, .table td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid var(--dark-color);
+  body .custom-container .custom-table img {
+    width: 100px !important;
+    height: 100px !important;
   }
   
-  .table a {
-    color: var(--light-color);
-    text-decoration: none;
-  }
-  
-  .table img {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .home-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 20px 0;
-    background-color: var(--secondary-color);
-    color: var(--light-color);
-    text-decoration: none;
-    text-align: center;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .home-btn:hover {
-    background-color: var(--dark-color);
-  }
-  
-  .btn {
-    background-color: var(--light-color);
-    color: var(--primary-color);
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .btn:hover {
-    background-color: var(--secondary-color);
-    color: var(--light-color);
-  }
+  body .custom-container .custom-home-btn {
+    display: inline-block !important;
+    padding: 10px 20px !important;
+    margin: 20px 0 !important;
+    background-color: var(--secondary-color) !important;
+    color: var(--light-color) !important;
+    text-decoration: none !
   
