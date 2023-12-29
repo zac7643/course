@@ -11,8 +11,8 @@ def main():
     response = requests.get('http://141.147.64.158/getstatschart/')
     content = response.text  # Get the content of the response as a string
     content = content.strip()  # Now you can use the strip() method
-    st.write(f"Response status code: {response.status_code}")
-    st.write(f"Response content: {content}")
+    # st.write(f"Response status code: {response.status_code}")
+    # st.write(f"Response content: {content}")
 
     try:
         data = response.json()
@@ -23,7 +23,7 @@ def main():
         chart_data['product_price_stats'] = chart_data['product_price_stats'].astype(float)
         chart_data['price_date_stats'] = pd.to_datetime(chart_data['price_date_stats']).dt.date  # Convert 'price_date' to date without time
         chart_data.sort_values('price_date_stats', inplace=True)  # Sort by 'price_date' in ascending order
-        st.write(chart_data)  # Display the DataFrame
+        # st.write(chart_data)  # Display the DataFrame
     except Exception as e:
         st.write(f"Error: {str(e)}")
         return  # If there's an error, we return and don't attempt to draw the chart
