@@ -6,11 +6,16 @@ body {
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 80%;
   margin: 0 auto;
 }
 
 h1 {
+  order: 1;
+  flex-grow: 1;
   text-align: center;
   color: #FF9900;
   margin-top: 20px;
@@ -64,24 +69,22 @@ h2 {
 }
 
 .user-info {
-  float: right;
+  order: 2;
+  width: 100%;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   margin-bottom: 20px;
-  padding: 5px 20px !important;
-  display: inline-block;
-  width: 100%;
-  text-align: right !important;
+  padding: 5px 20px;
 }
 
 .user-info h3, .logout-button {
   display: inline-block;
-  margin-left: 5px !important;
+  margin-left: 5px;
 }
 
 .user-info h3 {
   margin-right: 20px;
-  display: inline-block;
 }
 
 .user-info a {
