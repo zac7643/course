@@ -1,53 +1,52 @@
-body{
-    background-color: #00008B; /* Dark blue */
-    color: #fff; /* White */
+body {
+  background-color: #00008B;
+  color: #fff;
 }
 
-.custom-title {
-    color: #FF9900; /* Amazon orange */
+.title {
+  text-align: center;
+  color: #FF9900;
+  padding: 20px 0;
 }
 
-.custom-container {
-    background-color: #1a1a2e; /* Slightly lighter dark blue for contrast */
-    border-radius: 15px; /* Rounded corners */
-    padding: 20px; /* Some padding */
+.results {
+  text-align: center;
+  color: #FF9900;
 }
 
-.custom-table {
-    color: #fff; /* White text for the table */
+.home-btn {
+  display: block;
+  width: 100%;
+  color: #000;
+  background-color: #FF9900;
+  padding: 10px 0;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-.custom-text-warning {
-    color: #FF9900 !important; /* Amazon orange */
+.table {
+  width: 100%;
+  color: #fff;
+  margin-bottom: 20px;
 }
 
-.custom-home-btn {
-    background-color: #FF9900; /* Amazon orange */
-    color: #000; /* Black text */
+.product-link, .product-link:hover {
+  color: #FF9900;
 }
 
-.custom-home-btn:hover {
-    background-color: #cc7a00; /* Darker orange on hover */
+.fav-btn {
+  border: none;
+  background-color: transparent;
+  color: #FF9900;
+  cursor: pointer;
 }
 
-.custom-link, .custom-text-light {
-    color: #FF9900; /* Amazon orange */
+.price {
+  color: #FF9900;
 }
 
-.custom-link:hover, .custom-text-light:hover {
-    color: #cc7a00; /* Darker orange on hover */
-}
-
-.custom-btn-light {
-    border-color: #FF9900; /* Amazon orange */
-    color: #FF9900; /* Amazon orange */
-}
-
-.custom-btn-light:hover {
-    background-color: #FF9900; /* Amazon orange */
-    color: #000; /* Black text */
-}
-
-.custom-img {
-    border-radius: 15px; /* Rounded corners for the images */
+.product-img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
 }
