@@ -2,7 +2,7 @@
 import streamlit as st
 import pip._vendor.requests as requests
 import pandas as pd
-import matplotlib.pyplot as style
+import matplotlib.pyplot as style, plt
 import numpy as np
 
 
