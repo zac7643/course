@@ -42,7 +42,7 @@ input[type="password"] {
 }
 
 input[type="submit"] {
-  padding: 20px 40px !important;
+  padding: 15px 25px !important;
   font-size: 20px;
   display: inline-block;
   border: none;
@@ -75,6 +75,7 @@ a {
 
 
 .ClickHere {
+  text-align: center;
   padding: 5px 20px !important;
   display: inline-block;
   border: none;
